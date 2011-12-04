@@ -22,7 +22,7 @@ class Model
             try {
                 $this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=UTF-8", DB_USER, DB_PASS);
             }catch(PDOException $e){
-               // echo $e->getMessage();
+                echo $e->getMessage();
             }
         }
     
