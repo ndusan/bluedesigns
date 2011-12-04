@@ -1,0 +1,6 @@
+nbproject/
+tmp/
+config/config.php.dist
+config/config.php
+public/uploads/
+
