@@ -12,32 +12,6 @@ $routes = array(
             'action'     => 'noPageFound', 
             'layout'     => '404'
     ),
-    //Static content
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/o-nama\/?$/', 
-            'controller' => 'static', 
-            'action'     => 'aboutUs', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/pretplati-se-na-magazin\/?$/', 
-            'controller' => 'static', 
-            'action'     => 'signUpForMagazine', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/naruci-ranije-brojeve\/?$/', 
-            'controller' => 'static', 
-            'action'     => 'orderPrevious', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/pokloni-pretplatu\/?$/', 
-            'controller' => 'static', 
-            'action'     => 'giveAway', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/arhiva-izdanja\/?$/', 
-            'controller' => 'static', 
-            'action'     => 'archive', 
-            'layout'     => 'default'
-    ),
     //Login page
     array(  'url'        => '/^login\/?$/', 
             'controller' => 'login', 
@@ -105,32 +79,6 @@ $routes = array(
             'controller' => 'cmsUser', 
             'action'     => 'delete', 
             'layout'     => 'empty'
-    ),
-    //CMS static content
-    array(  'url'        => '/^cms\/static\/about-us\/?$/', 
-            'controller' => 'cmsStatic', 
-            'action'     => 'aboutUs', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/static\/sign-up-for-magazine\/?$/', 
-            'controller' => 'cmsStatic', 
-            'action'     => 'signUpForMagazine', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/static\/order-previous\/?$/', 
-            'controller' => 'cmsStatic', 
-            'action'     => 'orderPrevious', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/static\/give-away\/?$/', 
-            'controller' => 'cmsStatic', 
-            'action'     => 'giveAway', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/static\/archive\/?$/', 
-            'controller' => 'cmsStatic', 
-            'action'     => 'archive', 
-            'layout'     => 'cms'
     ),
     
     

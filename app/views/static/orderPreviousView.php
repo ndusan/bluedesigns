@@ -1,1 +1,0 @@
-#poruci prethodni broj
