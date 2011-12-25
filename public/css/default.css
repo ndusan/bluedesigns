@@ -9,3 +9,83 @@ address,caption,cite,code,dfn,th,var {font-style:normal; font-weight:normal;}
 em,strong{}
 ol,ul {list-style:none;}
 caption {text-align:center;}
+
+h1,h2,h3,h4 {font-size:100%; margin:0; padding:0; font-weight:normal;}
+q:before,q:after {content:'';}
+abbr,acronym { border:0;}
+
+/*MAIN*/
+body {font-size:13px; color:#555; font-family:arial,sans-serif; background-color:#000;}
+a {color:#555; outline:none; text-decoration:none;}
+a:hover {color:#333;}
+img {border: none; vertical-align:top;}
+p {padding:0;}
+.cl {clear:both; line-height:0;}
+.fl {float:left;}
+.fr {float:right;}
+.jnotif {position:fixed; top:0; left:50%; width:300px; text-align:center; padding:20px; margin:0 0 0 -170px; border-radius:0 0 5px 5px;}
+#jerror {background-color:#cd3c3c; color:#FFF;}
+#jsuccess {background-color:#8dc73f; color:#FFF;}
+.noResults {background-color:#eef4f5; font-size:14px; padding:20px; border-bottom:solid 1px #BAD4E3; text-align:center;}
+
+h1 {font-size:50px;}
+h2 {font-size:18px;}
+h3 {font-size:14px;}
+h4 {font-size:14px;}
+
+/*BUILD*/
+.headerW {background:transparent url(../images/header_bg.jpg) scroll repeat-x 0 0;}
+.header {position:relative; height:150px; width:960px; margin:0 auto;}
+.logo {position:absolute; top:25px; left:20px;}
+.logoFooter {position:absolute; top:-32px; left:50%; margin:0 0 0 -26px;}
+
+ul.lang {position:absolute; top:10px; right:0;}
+ul.lang li {float:left; padding:0 0 0 10px; margin:0 0 0 10px; border-left:solid 1px #FFF;}
+ul.lang li.first {border:none;}
+ul.lang li a {font-family:"Georgia", sans-serif; color:#fff200;}
+ul.lang li a.active {color:#FFF;}
+
+ul.mainNav {overflow:hidden; position:absolute; right:0; bottom:9px;}
+ul.mainNav li {float:left; margin-left:2px;}
+ul.mainNav li a {text-transform:uppercase; color:#FFF; font-size:12px; font-family:"Georgia", sans-serif; display:block; width:108px; text-align:center; line-height:37px; background:transparent url(../images/mainNav_bg.png) scroll no-repeat 100% 0;}
+ul.mainNav a.home:hover, ul.mainNav a.home.active {background-position:0 0;}
+ul.mainNav a.studio:hover, ul.mainNav a.studio.active {background-position:-108px 0;}
+ul.mainNav a.work:hover, ul.mainNav a.work.active {background-position:-216px 0;}
+ul.mainNav a.news:hover, ul.mainNav a.news.active {background-position:-324px 0;}
+ul.mainNav a.download:hover, ul.mainNav a.download.active {background-position:-432px 0;}
+ul.mainNav a.contact:hover, ul.mainNav a.contact.active {background-position:-540px 0;}
+
+.contentW {background-color:#FFF;}
+.content {width:960px; margin:0 auto;}
+
+.bottomW {background-color:#c7dff4; padding:10px 0; border-bottom:solid 10px #3d85c6;}
+.bottom {width:960px; margin:0 auto;}
+
+.footer {position:relative; background:transparent url(../images/footer_bg.png) scroll no-repeat 50% 0; height:100px; padding:35px 0 0; text-align:center; color:#6dcff6;}
+.footer p {margin-bottom:20px;}
+
+.fb, .tw, .yt {width:30px; height:30px; display:inline-block; background-image:url(../images/socIcons.png);}
+.fb {background-position:0 0;}
+.fb:hover {background-position:0 -30px;}
+.tw {background-position:-30px 0;}
+.tw:hover {background-position:-30px -30px;}
+.yt {background-position:-60px 0;}
+.yt:hover {background-position:-60px -30px;}
+
+.quotes {overflow:hidden; font-family:"Georgia", sans-serif;}
+.quoteText {font-style:italic; padding:25px 0 25px 50px; width:430px; float:left; background:#b6d7f1 url(../images/quotes.png) scroll no-repeat 10px 10px; height:180px;}
+.quoteText h2 {color:#FFF;}
+.quoteText p {padding:0 50px 20px 0; background:#b6d7f1 url(../images/quotes1.png) scroll no-repeat 100% 100%;}
+.quoteIcons {padding:30px 0; text-align:center; width:480px; height:170px; float:right; background:transparent url(../images/quotes_bg.png) scroll no-repeat 0 50%;}
+.quoteIcons h2 {color:#FFF;}
+
+ul.clientsLogos {overflow:hidden; border:dashed 1px #FFF; border-left:none; border-right:none; margin:0 10px 0 30px;}
+ul.clientsLogos li {float:left;}
+ul.clientsLogos li a {display:block; overflow:hidden; width:88px; height:90px; margin:20px 0; position:relative;}
+ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolute; bottom:0; left:0;}
+
+.homeContent {position:relative; font-family:"Georgia", sans-serif; padding:20px 0; border:dotted 1px #CCC; border-left:none; border-right:none;}
+.homeContent p {padding:10px 0;}
+.homeContent h1 {color:#92278f; line-height:50px;}
+.homeContent .homeText {width:480px; padding:0 0 30px;}
+.homeContent img {position:absolute; bottom:20px; right:0;}
