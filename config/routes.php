@@ -6,6 +6,32 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'default'
     ),
+    //Contact page
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/contact\/?$/', 
+            'controller' => 'contact', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/download\/?$/', 
+            'controller' => 'download', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/news\/?$/', 
+            'controller' => 'news', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/work\/?$/', 
+            'controller' => 'work', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/studio\/?$/', 
+            'controller' => 'studio', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
     //404
     array(  'url'        => '/^404\/?$/', 
             'controller' => 'home', 
