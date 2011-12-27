@@ -47,7 +47,7 @@ ul.lang li a.active {color:#FFF;}
 
 ul.mainNav {overflow:hidden; position:absolute; right:0; bottom:9px;}
 ul.mainNav li {float:left; margin-left:2px;}
-ul.mainNav li a {text-transform:uppercase; color:#FFF; font-size:12px; font-family:"Georgia", sans-serif; display:block; width:108px; text-align:center; line-height:37px; background:transparent url(../images/mainNav_bg.png) scroll no-repeat 100% 0;}
+ul.mainNav li a {font-weight:bold; text-transform:uppercase; color:#FFF; font-size:12px; font-family:"Georgia", sans-serif; display:block; width:108px; text-align:center; line-height:37px; background:transparent url(../images/mainNav_bg.png) scroll no-repeat 100% 0;}
 ul.mainNav a.home:hover, ul.mainNav a.home.active {background-position:0 0;}
 ul.mainNav a.studio:hover, ul.mainNav a.studio.active {background-position:-108px 0;}
 ul.mainNav a.work:hover, ul.mainNav a.work.active {background-position:-216px 0;}
@@ -76,16 +76,48 @@ ul.mainNav a.contact:hover, ul.mainNav a.contact.active {background-position:-54
 .quoteText {font-style:italic; padding:25px 0 25px 50px; width:430px; float:left; background:#b6d7f1 url(../images/quotes.png) scroll no-repeat 10px 10px; height:180px;}
 .quoteText h2 {color:#FFF;}
 .quoteText p {padding:0 50px 20px 0; background:#b6d7f1 url(../images/quotes1.png) scroll no-repeat 100% 100%;}
-.quoteIcons {padding:30px 0; text-align:center; width:480px; height:170px; float:right; background:transparent url(../images/quotes_bg.png) scroll no-repeat 0 50%;}
+.quoteIcons {padding:20px 0; text-align:center; width:480px; height:190px; float:right; background:transparent url(../images/quotes_bg.png) scroll no-repeat 0 50%;}
 .quoteIcons h2 {color:#FFF;}
 
-ul.clientsLogos {overflow:hidden; border:dashed 1px #FFF; border-left:none; border-right:none; margin:0 10px 0 30px;}
+ul.clientsLogos {overflow:hidden; border:dashed 1px #FFF; border-left:none; border-right:none; margin:10px 10px 0 30px;}
 ul.clientsLogos li {float:left;}
 ul.clientsLogos li a {display:block; overflow:hidden; width:88px; height:90px; margin:20px 0; position:relative;}
 ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolute; bottom:0; left:0;}
 
-.homeContent {position:relative; font-family:"Georgia", sans-serif; padding:20px 0; border:dotted 1px #CCC; border-left:none; border-right:none;}
+.homeContent {position:relative; font-family:"Georgia", sans-serif; padding:20px 0; border-top:dotted 1px #CCC;}
 .homeContent p {padding:10px 0;}
 .homeContent h1 {color:#92278f; line-height:50px;}
 .homeContent .homeText {width:480px; padding:0 0 30px;}
 .homeContent img {position:absolute; bottom:20px; right:0;}
+
+ul.latestProjects {overflow:hidden; padding:20px 0 15px;}
+ul.latestProjects li {float:left; margin:0 13px 0 0; padding:10px; position:relative; background-image: url(../images/mask.jpg);}
+ul.latestProjects li span {display:none; position:absolute; bottom:10px; left:10px; width:190px; padding:15px 10px; background-image: url(../images/mask1.png);}
+ul.latestProjects li a {color:#FFF; font-family:"Georgia", sans-serif; font-weight:bold;}
+ul.latestProjects li a:hover span {display:block;}
+ul.latestProjects li.last {margin:0;}
+
+.contentAll {padding:20px 0 15px; border-top:dotted 1px #CCC;}
+.contentAll > span {text-align:center; display:block;}
+.contentAll h2 {font-size:31px;  line-height:35px; font-family:"Georgia", sans-serif;}
+
+.colHome h2 {color:#92278f;}
+.colStudio h2 {color:#8dc63f;}
+.colDownloads h2 {color:#e30613;}
+
+#studio {position:relative; padding:20px 0 15px;}
+#studio h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#FFF; line-height:40px; padding:0 10px 20px; background:transparent url(../images/studioBg1.png) scroll repeat-x 0 0;}
+#studio span.on {float:right; display:none; background:transparent url(../images/studioOn.png) scroll no-repeat 100% 50%; padding:0 40px 0 0;}
+#studio span.off {float:right; background:transparent url(../images/studioOff.png) scroll no-repeat 100% 50%; padding:0 40px 0 0;}
+#studio h3.active  {background:transparent url(../images/studioBg2.png) scroll repeat-x 0 0;}
+#studio h3.active span.on {display:block;}
+#studio h3.active span.off {display:none;}
+#studio div {position:relative; margin:0 0 20px; border-bottom:dotted 1px #CCC; padding:0 5px 10px;}
+#studio div p {padding:0; margin-bottom:15px;}
+
+ul.downloads {overflow:hidden; padding:20px 0 5px; margin:0 0 10px; border-bottom:dotted 1px #CCC;}
+ul.downloads li {float:left; margin:0 10px 10px 0; padding:10px; position:relative; background-image: url(../images/mask.jpg);}
+ul.downloads li span {display:none; color:#FFF; position:absolute; bottom:10px; left:10px; width:273px; padding:15px 10px; background-image: url(../images/mask1.png);}
+ul.downloads li a {color:#FFF;}
+ul.downloads li:hover span {display:block; text-align:center;}
+ul.downloads li.last {margin:0;}

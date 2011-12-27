@@ -35,7 +35,33 @@
             We’ve got the vision, we’ve got the talent. Let us prove it to you!
         </p>
     </div>
-     <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+    <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+</div>
+<div class="contentAll colHome">
+    <h2>Latest Projects</h2>
+    <ul class="latestProjects">
+        <li>
+            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
+                <span>Naziv klijenta</span>
+            </a>
+        </li>
+        <li>
+            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
+                <span>Naziv klijenta</span>
+            </a>
+        </li>
+        <li>
+            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
+                <span>Naziv klijenta</span>
+            </a>
+        </li>
+        <li class="last">
+            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
+                <span>Naziv klijenta</span>
+            </a>
+        </li>
+    </ul>
+    <span>fecebook plugin</span>
 </div>
 
 
