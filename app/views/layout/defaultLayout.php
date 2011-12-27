@@ -24,59 +24,52 @@
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
-        <div class="headerC">
-            <div class="header">
-                    <div class="Hlogo"></div>
-                    <div class="langBar">SR / EN</div>
-                    <div class="menu">
-                        <ul>
-                            <li class="btn_home"><a <?=('index'==$this->_action?'style="background-position: 0px -60px;"': '');?> href="/">HOME</a></li>
-                            <li class="btn_studio"><a <?=('studio'==$this->_action?'style="background-position: -110px -60px;"': '');?> href="/studio">STUDIO</a></li>
-                            <li class="btn_portfolio"><a <?=('portfolio'==$this->_action?'style="background-position: -220px -60px;"': '');?> href="/portfolio">OUR WORK</a></li>
-                            <li class="btn_news"><a <?=('news'==$this->_action?'style="background-position: -330px -60px;"': '');?> href="/news">NEWS</a></li>
-                            <li class="btn_download"><a <?=('download'==$this->_action?'style="background-position: -440px -60px;"': '');?> href="/download">DOWNLOADS</a></li>
-                            <li class="btn_contact"><a <?=('contact'==$this->_action?'style="background-position: -550px -60px;"': '');?> href="/contact">CONTACT</a></li>
+
+        <div class="headerW">
+            <div class="header"> 
+                <a class="logo" href="/">
+                    <img src="<?= IMAGE_PATH . 'logo.png'; ?>" />
+                </a>
+                <? include_once VIEW_PATH . 'home' . DS . '_mainNavigation.php'; ?>
+            </div>   
+        </div> 
+        <div class="contentW">
+            <div class="content">
+                <!-- This is a content that will be included on page inside of this layout -->
+                <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
+                    include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+            </div>
+        </div>
+        <div class="bottomW">
+            <div class="bottom">
+                <div class="quotes">
+                    <div class="quoteText">
+                        <p>
+                            We needed to capitalise on our market leading position in grassroots sports marketing and Mr B & Friends created an excellent solution for taking the Activate UK brand forward. The design concept encapsulates our business philosophy and the emotive nature of our industry in a creative and memorable way.
+                        </p>
+                        <h2>Nikola Kovacevic</h2>
+                        <h4>Naxi Media Group</h4>
+                    </div>
+                    <div class="quoteIcons">
+                        <h2>What out clients had to say:</h2>
+                        <ul class="clientsLogos">
+                            <li><a class="active" href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
+                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
+                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
+                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
+                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
                         </ul>
                     </div>
-             </div>         
-        </div>
-        <div class="mainC">
-            <!-- This is a content that will be included on page inside of this layout -->
-            <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
-        include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>  
-        </div>
-        
-        
-       
-        <div class="quotesC">
-            <div class="quotes">
-                <div class="quotes_text">We needed to capitalise on our market leading position in grassroots sports marketing and Mr B & Friends created an excellent solution for taking the Activate UK brand forward. The design concept encapsulates our business philosophy and the emotive nature of our industry in a creative and memorable way.</div>
-                <div class="quotes_signatures">Nikola Kovačević</div>
-                <div class="quotes_companies">Naxi Media Group</div>
-            </div>
-
-            <div class="quotes_clients" id="jall-quotes">
-                <h3 class="white">What our clients had to say:</h3>
-                    <ul>
-                        <li> <img src="<?= IMAGE_PATH . 'usce-logo-inactive.jpg'; ?>" /></li>
-                        <li> <img src="<?= IMAGE_PATH . 'usce-logo-inactive.jpg'; ?>" /></li>
-                        <li> <img src="<?= IMAGE_PATH . 'usce-logo-inactive.jpg'; ?>" /></li>
-                        <li> <img src="<?= IMAGE_PATH . 'usce-logo-inactive.jpg'; ?>" /></li>
-                       
-                    </ul>
-            </div>
-            
-          </div>
-           <div class="footerC">  
-            <div class="footer-bg-logo">
-                    <div class="footer-text">2011 Blue Designs. All rights reserved</div>
-                    <div class="socialGroups"><img src="<?= IMAGE_PATH . 'fb.png'; ?>" width="30" height="30" /><img src="<?= IMAGE_PATH . 'tw.png'; ?>" width="30" height="30" /><img src="<?= IMAGE_PATH . 'yt.png'; ?>" width="30" height="30" /></div>
                 </div>
-            
+            </div>
         </div>
-        
-        
-    
-    
+        <div class="footer">
+            <p>&copy;2012 Blue Designs. All rights reserved.</p>
+            <a href="#" class="fb"></a><a href="#" class="tw"></a><a href="#" class="yt"></a>
+            <a class="logoFooter">
+                <img src="<?= IMAGE_PATH . 'logoFooter.png'; ?>" />
+            </a>
+        </div>
+>>>>>>> 4a4db85a4dbaa5d5a8f24c6f26eeb5531fa94d02
     </body>
 </html>
