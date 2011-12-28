@@ -42,16 +42,11 @@
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
                     <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
-                    <li class="leaf">
-                        <a <?= $this->_controller=='cmsStatic'?'class="active"':''; ?> href="#" id="leaf-link">Static content</a>
-                        <ul class="leaf-child" <?= $this->_controller=='cmsStatic'?'style="display:block;"':''; ?>>
-                            <li><a <?= $this->_action=='aboutUs'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'about-us'; ?>">About us</a></li>
-                            <li><a <?= $this->_action=='giveAway'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'give-away'; ?>">Give away</a></li>
-                            <li><a <?= $this->_action=='orderPrevious'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'order-previous'; ?>">Order Previous</a></li>
-                            <li><a <?= $this->_action=='signUpForMagazine'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'sign-up-for-magazine'; ?>">Sign Up For Magazine</a></li>
-                            <li><a <?= $this->_action=='archive'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'archive'; ?>">Archive</a></li>
-                        </ul>
-                    </li>
+                    <li><a <?= $this->_controller=='cmsWork'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'work'; ?>">Work</a></li>
+                    <li><a <?= $this->_controller=='cmsWallpaper'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'wallpaper'; ?>">Wallpaper</a></li>
+                    <li><a <?= $this->_controller=='cmsNews'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'news'; ?>">News</a></li>
+                    <li><a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a></li>
+                    <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'carousel'; ?>">Carousel</a></li>
                 </ul>
             </div>
             <div class="content">

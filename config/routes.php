@@ -107,5 +107,98 @@ $routes = array(
             'layout'     => 'empty'
     ),
     
+    //CMS work page
+    array(  'url'        => '/^cms\/work\/?$/', 
+            'controller' => 'cmsWork', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/work\/add\/?$/', 
+            'controller' => 'cmsWork', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/work\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsWork', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/work\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsWork', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
     
+    //CMS wallpaper page
+    array(  'url'        => '/^cms\/wallpaper\/?$/', 
+            'controller' => 'cmsWallpaper', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/wallpaper\/add\/?$/', 
+            'controller' => 'cmsWallpaper', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/wallpaper\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsWallpaper', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS news page
+    array(  'url'        => '/^cms\/news\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/news\/add\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/news\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/news\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/news\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS contact page
+    array(  'url'        => '/^cms\/contact\/?$/', 
+            'controller' => 'cmsContact', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    
+    //CMS carousel page
+    array(  'url'        => '/^cms\/carousel\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/add\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
 );
