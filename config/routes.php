@@ -172,4 +172,33 @@ $routes = array(
             'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
+    
+    //CMS contact page
+    array(  'url'        => '/^cms\/contact\/?$/', 
+            'controller' => 'cmsContact', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    
+    //CMS carousel page
+    array(  'url'        => '/^cms\/carousel\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/add\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
 );
