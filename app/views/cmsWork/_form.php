@@ -3,7 +3,7 @@
         <li><a href="#fragment-1">Serbian</a></li>
         <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
-    <form action="/cms/work/<?= $action; ?>" method="post">
+    <form action="/cms/work/<?= $action; ?>" method="post" enctype="multipart/form-data">
         <div class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
@@ -35,8 +35,8 @@
                     <? if (!empty($fileCollection)): ?>
                         <? foreach ($fileCollection as $file): ?>
                             <tr id="jLine-<?= $file['id']; ?>">
-                                <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'ads' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a></td>
-                                <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'download' . DS . 'logo' . DS . 'delete-file' . DS . '?id=' . $file['id']; ?>" title="Remove file"class="jRemoveBrowse cmsDelete"></a></td>
+                                <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a></td>
+                                <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'work' . DS . 'delete' .DS.$file['work_id'] . DS . 'image' . DS . $file['id']; ?>" title="Remove file"class="jRemoveBrowse cmsDelete"></a></td>
                             </tr>
                         <? endforeach; ?>
                     <? endif; ?>
@@ -54,7 +54,7 @@
                     <tr>
                         <td>Description:</td>
                         <td>
-                            <textarea name="work[sr][description]" ><?= @$work['sr']['description']; ?></textarea>
+                            <textarea name="work[description][sr]" ><?= @$work['lang']['sr']['description']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -66,7 +66,7 @@
                     <tr>
                         <td>Description:</td>
                         <td>
-                            <textarea name="work[en][description]" ><?= @$work['en']['description']; ?></textarea>
+                            <textarea name="work[description][en]" ><?= @$work['lang']['en']['description']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>

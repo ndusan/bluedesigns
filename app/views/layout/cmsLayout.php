@@ -40,13 +40,15 @@
         <div class="wrapper">
             <div class="sidebar">
                 <ul class="mainNav">
-                    <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
                     <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
+                    <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Home</a></li>
                     <li><a <?= $this->_controller=='cmsWork'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'work'; ?>">Work</a></li>
                     <li><a <?= $this->_controller=='cmsWallpaper'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'wallpaper'; ?>">Wallpaper</a></li>
                     <li><a <?= $this->_controller=='cmsNews'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'news'; ?>">News</a></li>
                     <li><a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a></li>
                     <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'carousel'; ?>">Carousel</a></li>
+                    <li><a <?= $this->_controller=='cmsStudio'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'studio'; ?>">Studio</a></li>
+                    <li><a <?= $this->_controller=='cmsSaying'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'saying'; ?>">Saying</a></li>
                 </ul>
             </div>
             <div class="content">

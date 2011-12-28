@@ -19,4 +19,5 @@ class CmsContactController extends Controller
         $this->set('contact', $this->db->findContact());
     }
     
+    
 }

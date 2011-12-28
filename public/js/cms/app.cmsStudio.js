@@ -1,9 +1,9 @@
 var App = App || {};
 (function($) {
-    App.CmsCarousel = {
+    App.CmsStudio = {
         init: function() {
-        },
         
+        },
         index: function() {
             
             //Set datatable

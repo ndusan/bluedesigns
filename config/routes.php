@@ -62,6 +62,11 @@ $routes = array(
             'action'     => 'settings', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsHome', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
     
     //CMS dictionary page
     array(  'url'        => '/^cms\/dictionary\/?$/', 
@@ -126,6 +131,11 @@ $routes = array(
     array(  'url'        => '/^cms\/work\/delete\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsWork', 
             'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/work\/delete\/(?P<id>\d*)\/image\/(?P<file_id>\d*)\/?$/', 
+            'controller' => 'cmsWork', 
+            'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
     
@@ -198,6 +208,50 @@ $routes = array(
     ),
     array(  'url'        => '/^cms\/carousel\/delete\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsCarousel', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS studio page
+    array(  'url'        => '/^cms\/studio\/?$/', 
+            'controller' => 'cmsStudio', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/studio\/add\/?$/', 
+            'controller' => 'cmsStudio', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/studio\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsStudio', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/studio\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsStudio', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS saying page
+    array(  'url'        => '/^cms\/saying\/?$/', 
+            'controller' => 'cmsSaying', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/saying\/add\/?$/', 
+            'controller' => 'cmsSaying', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/saying\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsSaying', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/saying\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsSaying', 
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),

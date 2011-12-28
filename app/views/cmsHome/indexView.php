@@ -1,74 +1,70 @@
 <ul class="addTop">
-    <li><h3>Dashboard</h3></li>
+    <li><a href="/cms" >Home</a></li>
 </ul>
 <div class="tabs">
     <ul>
-        <li><a href="#fragment-1">General stats</a></li>
+        <li><a href="#fragment-1">Srpski</a></li>
+        <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
-    <div id="fragment-1">
-        <div class="statistics">
-            <ul class="stats">
-                <li>
-                    <span class="statsVis"><?= (empty($visitors['ga:visits']) ? 0 : $visitors['ga:visits']); ?></span>
-                    total visits in last month
-                </li>
-                <li>
-                    <ul>
-                        <li>
-                            <span class="statsVis"><?= (empty($visitors['ga:uniquePageviews']) ? 0 : $visitors['ga:uniquePageviews']); ?></span>
-                            unique visits
-                        </li>
-                        <li class="last">
-                            <span class="statsVie"><?= (empty($visitors['ga:uniquePageviews']) ? 0 : $visitors['ga:pageviews']); ?></span>
-                            page views
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <li>
-                            <span class="statsVis"><?= (empty($visitors['ga:bounces']) ? 0 : $visitors['ga:bounces']); ?></span>
-                            bounces
-                        </li>
-                        <li class="last">
-                            <span class="statsVis"><?= (empty($visitors['ga:newVisits']) ? 0 : $visitors['ga:newVisits']); ?></span>
-                            new visitors
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="stats">
-                <li>
-                    <span class="statsVis"><?= (empty($visitorsToday['ga:visits']) ? 0 : $visitorsToday['ga:visits']); ?></span>
-                    visits today
-                </li>
-                <li>
-                    <ul>
-                        <li>
-                            <span class="statsVie"><?= @$visitorsToday['ga:timeOnSite']; ?></span>
-                            time on site
-                        </li>
-                        <li class="last">
-                            <span class="statsVie"><?= @$visitorsToday['average_time_on_site_formatted']; ?></span>
-                            average time
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <li>
-                            <span class="statsVie"><?= @$visitorsToday['pages_per_visit']; ?></span>
-                            pages per visit
-                        </li>
-                        <li class="last">
-                            <span class="statsVie"><?= (empty($visitorsToday['ga:pageviews']) ? 0 : $visitorsToday['ga:pageviews']); ?></span>
-                            page views
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+    <form method="post" action="/cms" enctype="multipart/form-data">
+        <div id="fragment-1" class="addContent">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td>Title:</td>
+                        <td>
+                            <input type="text" name="home[sr][title]" value="<?= @$home['sr']['title']; ?>" class="jr"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="jtooltip" title="Set text visible on Home page">Description:</span></td>
+                        <td>
+                            <textarea name="home[sr][text]" class="jr"><?= @$home['sr']['text'];?></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
+        <div id="fragment-2" class="addContent">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td>Title:</td>
+                        <td>
+                            <input type="text" name="home[title][en]" value="<?= @$home['en']['title']; ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="jtooltip" title="Set text visible on Home page">Description:</span></td>
+                        <td>
+                            <textarea name="home[en][text]"><?= @$home['en']['text'];?></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="addContent">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td><span class="jtooltip" title="Image on home page">Image:</span></td>
+                        <td>
+                            <? if (isset($home['id']) && !empty($home['image_name'])): ?>
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'static' . DS . $home['image_name']; ?>" target="_blank"><?= $home['image_name']; ?></a>
+                                [<a href="/cms/delete/image/<?= $home['id']; ?>" target="_blank" class="jw">Delete</a>]
+                            <? else:?>
+                                <input type="file" name="image" class="jr" value=""/>
+                            <? endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Submit" name="submit" />
+                            <input type="hidden" name="home[id]" value="<?= @$home['id']; ?>" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
 </div>
-
-
