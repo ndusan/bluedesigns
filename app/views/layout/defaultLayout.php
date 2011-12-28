@@ -70,6 +70,6 @@
                 <img src="<?= IMAGE_PATH . 'logoFooter.png'; ?>" />
             </a>
         </div>
->>>>>>> 4a4db85a4dbaa5d5a8f24c6f26eeb5531fa94d02
+
     </body>
 </html>
