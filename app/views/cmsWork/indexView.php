@@ -7,8 +7,8 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr> 
-                <th>Key name</th> 
-                <th>Description</th> 
+                <th>Project name</th> 
+                <th>Link</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th> 
             </tr> 
@@ -17,7 +17,7 @@
             <? foreach ($workCollection as $w): ?>
                 <tr> 
                     <td><?= $w['name']; ?></td> 
-                    <td><?= $w['description']; ?></td> 
+                    <td><?= $w['link']; ?></td> 
                     <td><?= $html->convertDate($w['created'], true); ?></td> 
                     <td align="center">
                         <!--Edit-->
@@ -29,8 +29,8 @@
             <? endforeach; ?>
         <tfoot> 
             <tr> 
-                <th>Key name</th> 
-                <th>Description</th> 
+                <th>Project name</th> 
+                <th>Link</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th> 
             </tr> 

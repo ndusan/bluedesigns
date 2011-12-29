@@ -1,6 +1,6 @@
 <?php
 
-class CmsCarouselController extends Controller
+class CmsStudioController extends Controller
 {
     
     public function indexAction($params)
@@ -21,7 +21,7 @@ class CmsCarouselController extends Controller
                     $this->db->setImageName($id, $newImageName);
                     $this->uploadImage($newImageName, $params['image'], 'carousel');
                 }
-                $this->redirect ('cms'.DS.'carousel', 'success');
+                $this->redirect ('cms'.DSh.'carousel', 'success');
             }else{
                 $this->redirect ('cms'.DS.'carousel'.DS.'add', 'error');
             }

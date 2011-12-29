@@ -172,15 +172,44 @@ class Controller {
 
         $this->set('params', $params);
     }
+    
+    public function createFolder($folderName, $permission=0775, $recursive = true)
+    {
+        if(!is_dir($folderName)){
+            if(!mkdir($folderName, $permission, $recursive))
+                return false;
+        }
+        
+        return true;
+    }
 
     public function uploadImage($imageName, $image, $folder) {
 
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
+        
         if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $imageName)) {
             
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
             $size = filesize(UPLOAD_PATH . $folder . DS . $imageName);
+            chmod(UPLOAD_PATH . $folder . DS . $imageName, 0664);
             
             return array('width'=>$width, 'height'=>$height, 'size'=>$size);
+        } else {
+
+            return false;
+        }
+    }
+    
+    public function uploadFile($fileName, $file, $folder) {
+
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
+        
+        if (move_uploaded_file($file['tmp_name'], UPLOAD_PATH . $folder . DS . $fileName)) {
+            chmod(UPLOAD_PATH . $folder . DS . $fileName, 0644);
+            
+            return array('size'=>$file['size'], 'type'=>$file['type']);
         } else {
 
             return false;
@@ -193,9 +222,13 @@ class Controller {
             $this->deleteImage($oldImage, $folder);
         }
 
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
+        
         if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $newImage)) {
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $newImage);
             $size = filesize(UPLOAD_PATH . $folder . DS . $newImage);
+            chmod(UPLOAD_PATH . $folder . DS . $newImage, 0664);
             
             return array('width'=>$width, 'height'=>$height, 'size'=>$size);
         } else {
@@ -216,12 +249,30 @@ class Controller {
         }
     }
     
+    
+    public function deleteFile($fileName, $folder) {
+        
+        if (file_exists(UPLOAD_PATH . $folder . DS . $fileName)) {
+            unlink(UPLOAD_PATH . $folder . DS . $fileName);
+
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+    
     public function createThumbImage($imageName, $folder, $thumb_width, $thumb_height) {
+        
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
         
         if (file_exists(UPLOAD_PATH . $folder . DS . $imageName)) {
             
             //Calculate heigth
             list($currWidth, $currHeight) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
+            
+            if($currHeight<=0 || $thumb_height<=0) return false;
             
             $original_aspect = $currWidth / $currHeight;
             $thumb_aspect = $thumb_width / $thumb_height;
@@ -251,7 +302,7 @@ class Controller {
         
     }
 
-    public function sendEmail($to, $subject, $message, $from, $files=null) {
+    public function sendEmail($to, $subject, $message, $from, array $array=array(), array $files=array()) {
         
         //Header
         $headers = 'From:' . $from;
@@ -272,29 +323,22 @@ class Controller {
                                     </head>
                                     <body>
                                       <table>';
-            $tArray = array('company'=>'Naziv firme', 
-                            'occupation'=>'Delatnost', 
-                            'contact'=>'Kontakt osoba', 
-                            'email'=>'Email', 
-                            'phone'=>'Telefon', 
-                            'message'=>'Poruka',
-                            'pages'=>'Želim da se reklamiram u',
-                            'title'=>'Naslov poruke',
-                            'name'=>'Ime i prezime');
             
-            foreach ($message as $key => $val) {
-                $messageHtml.= '<tr>';
-                $messageHtml.= '<th>' . $tArray[$key] . '</th>';
-                    if('pages' == $key){
-                        $messageHtml.= '<td>';
-                        foreach ($val as $p){
-                            $messageHtml.= $p . '<br/>';
+            if(!empty($array)){
+                foreach ($message as $key => $val) {
+                    $messageHtml.= '<tr>';
+                    $messageHtml.= '<th>' . $array[$key] . '</th>';
+                        if(!empty($key) && is_array($key)){
+                            $messageHtml.= '<td>';
+                            foreach ($val as $p){
+                                $messageHtml.= $p . '<br/>';
+                            }
+                            $messageHtml.= '</td>';
+                        }else{
+                            $messageHtml.= '<td>' . $val . '</td>';
                         }
-                        $messageHtml.= '</td>';
-                    }else{
-                        $messageHtml.= '<td>' . $val . '</td>';
-                    }
-                $messageHtml.= '</tr>';
+                    $messageHtml.= '</tr>';
+                }
             }
             $messageHtml.= '</body>
                                     </html>';
@@ -337,5 +381,46 @@ class Controller {
             return false;
         }
     }
+    
+    
+    /*
+     * Check validation
+     * @param array $validations
+     * @param array $params
+     * @return bool or array
+     */
+     public function validate($validations, $params) {
+            $errors = array ('total_errors' => 0);
+            
+            foreach ($validations as $field => $validation){
+                    if(!preg_match($validation, $params[$field])){
+                            $errors['total_errors']++;
+                            $errors[$field] = true;
+                    }
+            }
+
+            if($errors['total_errors'] > 0){
+                
+                    return $errors;
+            }else{
+                
+                    return false;
+            }
+    }
+    
+    public function setLeftMenu($params)
+    {
+        $onlineCompetitionCollection = $this->db->getOnlineCompetitionCollection($params);
+        $offlineCompetitionCollection = $this->db->getOfflineCompetitionCollection($params);
+        
+        //Add background
+        $backgroundOptions = $this->db->getBackgroundOptions($params);
+        
+        $this->set('onlineCompetitionCollection', $onlineCompetitionCollection);
+        $this->set('offlineCompetitionCollection', $offlineCompetitionCollection);
+        $this->set('bgd', $backgroundOptions);
+    }
+    
+
 
 }

@@ -5,27 +5,115 @@ class CmsWorkController extends Controller
     
     public function indexAction($params)
     {
-        
-        
-        // enter your login, password and id into the variables below to try it out
-
-//        $login = GAQ_USERNAME;
-//        $password = GAQ_PASSWORD;
-//
-//        // NOTE: the id is in the form ga:12345 and not just 12345
-//        // if you do e.g. 12345 then no data will be returned
-//        // read http://www.electrictoolbox.com/get-id-for-google-analytics-api/ for info about how to get this id from the GA web interface
-//        // or load the accounts (see below) and get it from there
-//        // if you don't specify an id here, then you'll get the "Badly formatted request to the Google Analytics API..." error message
-//        $id = GAQ_PROFILE_ID;
-//
-//        $api = new analytics_api();
-//        if($api->login($login, $password)) {
-//
-//                parent::set('visitors', $api->data($id, '', 'ga:bounces,ga:newVisits,ga:visits,ga:pageviews,ga:uniquePageviews'));
-//                parent::set('visitorsToday', $api->get_summary($id, 'today'));
-//        }
+        $this->set('workCollection', $this->db->findAll());
     }
     
+    public function addAction($params)
+    {
+       
+        if(!empty($params['submit'])){
+            
+            //Data submited
+            if($id = $this->db->createWork($params['work'])){
+                
+                //If image uploaded add it
+                if(!empty($params['file']) && !empty($id)){
+                    $i=0;
+                    foreach($params['file']['error'] as $k=>$v){
+                        if(0 == $v){
+                            
+                            $image = array('name'=>$params['file']['name'][$k],
+                                           'type'=>$params['file']['type'][$k],
+                                           'tmp_name'=>$params['file']['tmp_name'][$k],
+                                           'error'=>$params['file']['error'][$k]);
+                            
+                            $newImageName = time()+$i++.'-'.$params['file']['name'][$k];
+                            $this->db->addFile($id, $newImageName);
+                            $this->uploadImage($newImageName, $image, 'work');
+
+                            //Create thumb
+                            $this->createThumbImage($newImageName, 'work', 200, 95);
+                        }
+                    }
+                }
+                $this->redirect ('cms'.DS.'work', 'success');
+            }else{
+                $this->redirect ('cms'.DS.'work'.DS.'add', 'error');
+            }
+        }
+    }
     
+    public function editAction($params)
+    {
+       
+        if(!empty($params['submit'])){
+            //Data submited
+
+            if($this->db->updateWork($params['work'])){
+                //If image uploaded add it
+                if(!empty($params['file']) && !empty($params['id'])){
+                    $i=0;
+                    foreach($params['file']['error'] as $k=>$v){
+                        if(0 == $v){
+                            
+                            $image = array('name'=>$params['file']['name'][$k],
+                                           'type'=>$params['file']['type'][$k],
+                                           'tmp_name'=>$params['file']['tmp_name'][$k],
+                                           'error'=>$params['file']['error'][$k]);
+                            
+                            $newImageName = time()+$i++.'-'.$params['file']['name'][$k];
+                            
+                            $this->db->addFile($params['id'], $newImageName);
+                            $this->uploadImage($newImageName, $image, 'work');
+
+                            //Create thumb
+                            $this->createThumbImage($newImageName, 'work', 200, 95);
+                        }
+                    }
+                }
+                $this->redirect ('cms'.DS.'work', 'success');
+            }else{
+                $this->redirect ('cms'.DS.'work'.DS.'edit'.DS.$params['id'], 'error');
+            }
+        }
+        $this->set('fileCollection', $this->db->getAllImages($params['id']));
+        $this->set('work', $this->db->findWork($params['id']));
+    }
+    
+    public function deleteAction($params)
+    {
+        $this->setRenderHTML(0);
+        
+        $data = $this->db->getAllImages($params['id']);
+        if($this->db->deleteWork($params)){
+            
+            //If exist delete
+            if(!empty($data)){
+                foreach($data as $d){
+                    $this->deleteImage($d['image_name'], 'work');
+                    $this->deleteImage('thumb-'.$d['image_name'], 'work');
+                }
+            }
+            $this->redirect ('cms'.DS.'work', 'success');
+        }else{
+            $this->redirect ('cms'.DS.'work', 'error');
+        }
+    }
+    
+    public function deleteImageAction($params)
+    {
+        $this->setRenderHTML(0);
+        
+        $data = $this->db->getImageName($params['file_id']);
+
+        //If exist delete
+        if(!empty($data)){
+            
+            $this->db->deleteImage($params['file_id']);
+            $this->deleteImage($data['image_name'], 'work');
+            $this->deleteImage('thumb-'.$data['image_name'], 'work');
+        }
+        
+        echo json_encode(array('response'=>true));
+    }
 }

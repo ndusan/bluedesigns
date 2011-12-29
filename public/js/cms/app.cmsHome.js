@@ -50,6 +50,11 @@ var App = App || {};
                     });
                 }
             });
+        },
+        index: function(){
+           App.Common.tabs();
+           App.Common.jtooltip();
+           App.Common.mce();
         }
     };
 })(this.jQuery);
