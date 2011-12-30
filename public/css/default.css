@@ -56,7 +56,7 @@ ul.mainNav a.download:hover, ul.mainNav a.download.active {background-position:-
 ul.mainNav a.contact:hover, ul.mainNav a.contact.active {background-position:-540px 0;}
 
 .contentW {background-color:#FFF;}
-.content {width:960px; margin:0 auto;}
+.content {width:960px; margin:0 auto; overflow:hidden;}
 
 .bottomW {background-color:#c7dff4; padding:10px 0; border-bottom:solid 10px #3d85c6;}
 .bottom {width:960px; margin:0 auto;}
@@ -104,6 +104,7 @@ ul.latestProjects li.last {margin:0;}
 .colHome h2 {color:#92278f;}
 .colStudio h2 {color:#8dc63f;}
 .colDownloads h2 {color:#e30613;}
+.colWork h2 {color:#f39200;}
 
 #studio {position:relative; padding:20px 0 15px;}
 #studio h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#FFF; line-height:40px; padding:0 10px 20px; background:transparent url(../images/studioBg1.png) scroll repeat-x 0 0;}
@@ -121,3 +122,13 @@ ul.downloads li span {display:none; color:#FFF; position:absolute; bottom:10px; 
 ul.downloads li a {color:#FFF;}
 ul.downloads li:hover span {display:block; text-align:center;}
 ul.downloads li.last {margin:0;}
+
+.workSidebar {width:280px; float:left;}
+.workContent {width:660px; float:right;}
+.workContent h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#f39200; font-size:24px;}
+.workContent p {padding:5px 0; font-family:"Georgia", sans-serif;}
+
+ul.clientsList {padding:10px 0;}
+ul.clientsList li {padding:0 0 5px;}
+ul.clientsList li a {font-family:"Georgia", sans-serif;}
+ul.clientsList li a.active {color:#f39200;}
