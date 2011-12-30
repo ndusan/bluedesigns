@@ -12,9 +12,13 @@
             <div class="newsText">
                 <h4><?=$r['title'];?></h4>
                 <?=$r['text'];?>
+                <?
+                $array = explode(' ', $r['created']);
+                $array = explode('-', $array[0]);
+                ?>
                 <div class="newsDate">
-                    <span>06</span>
-                    AUG
+                    <span><?=$array[2];?></span>
+                    <?=date('M',mktime(0, 0, 0, $array[1]+1, 0, 0));?>
                 </div>
             </div>
         </li>
