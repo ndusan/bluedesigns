@@ -20,7 +20,7 @@
     <? endif; ?>
 </div>
 <div class="contentAll colDownloads">
-    <h2>What can we do for you?</h2>
+    <h2><?=$_t['page.download.title'];?></h2>
     <ul class="downloads">
         <li>
             <img src="<?= IMAGE_PATH . 'dummy3.jpg'; ?>" />

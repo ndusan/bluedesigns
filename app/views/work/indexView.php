@@ -1,6 +1,6 @@
 <div class="contentAll colWork">
     <div class="workSidebar">
-        <h2>Clients we did work for:</h2> 
+        <h2><?=$_t['page.clients.title'];?></h2> 
         <ul class="clientsList">
             <li><a href="#">Naxi Radio</a></li>
             <li><a href="#">Naxi Radio</a></li>
