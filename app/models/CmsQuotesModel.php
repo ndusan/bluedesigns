@@ -204,4 +204,22 @@ class CmsQuotesModel extends Model
             return false;
         }
     } 
+    
+    
+    public function setVisible($params)
+    {
+        
+        try{
+            $query = sprintf("UPDATE %s SET `visible`=(1-`visible`) WHERE `id`=:id", $this->tableQuotes);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
 }

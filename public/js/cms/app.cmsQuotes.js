@@ -9,6 +9,18 @@ var App = App || {};
             //Set datatable
             $('#dataTable').dataTable();
             App.Common.thead();
+            
+            $('body').delegate('input[type="checkbox"]', 'click', function(){
+               
+               var cVal = $(this).val();
+               
+               $.ajax({
+                  url: $('#url').val(),
+                  type: 'GET',
+                  data: 'id='+cVal
+               });
+            });
+            
        },
        add: function() {
            App.Common.tabs();
