@@ -35,7 +35,7 @@
                 <li <?= $this->_action=='settings'?'class="active"':''; ?>><a  href="<?= DS . 'cms'.DS.'settings'; ?>">Settings</a></li>
                 <li><a href="<?= DS . 'logout'; ?>" class="jl">Logout</a></li>
             </ul>
-            <h1><span>Admin panel</span>Putovanja za dvoje</h1>
+            <h1><span>Admin panel</span>Blue Designs</h1>
         </div>
         <div class="wrapper">
             <div class="sidebar">
@@ -48,7 +48,7 @@
                     <li><a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a></li>
                     <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'carousel'; ?>">Carousel</a></li>
                     <li><a <?= $this->_controller=='cmsStudio'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'studio'; ?>">Studio</a></li>
-                    <li><a <?= $this->_controller=='cmsSaying'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'saying'; ?>">Saying</a></li>
+                    <li><a <?= $this->_controller=='cmsQuotes'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'quotes'; ?>">Quotes</a></li>
                 </ul>
             </div>
             <div class="content">

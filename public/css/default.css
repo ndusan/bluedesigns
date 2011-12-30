@@ -10,6 +10,7 @@ em,strong{}
 ol,ul {list-style:none;}
 caption {text-align:center;}
 
+
 h1,h2,h3,h4 {font-size:100%; margin:0; padding:0; font-weight:normal;}
 q:before,q:after {content:'';}
 abbr,acronym { border:0;}
@@ -89,6 +90,7 @@ ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolu
 .homeContent h1 {color:#92278f; line-height:50px;}
 .homeContent .homeText {width:480px; padding:0 0 30px;}
 .homeContent img {position:absolute; bottom:20px; right:0;}
+
 
 ul.latestProjects {overflow:hidden; padding:20px 0 15px;}
 ul.latestProjects li {float:left; margin:0 13px 0 0; padding:10px; position:relative; background-image: url(../images/mask.jpg);}

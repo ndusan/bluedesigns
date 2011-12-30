@@ -9,11 +9,11 @@ class CmsWallpaperModel extends Model
     private $tableFiles = 'files';
     
     private $tableWallpaper = 'wallpaper';
-    private $tableWallpaperImage = 'wallpapaer_images';
+    private $tableWallpaperImage = 'wallpaper_images';
     
     
     
-    public function createWallpaper($params)
+    public function create($params)
     {
         try{
             $query = sprintf("INSERT INTO %s SET `created`=CURRENT_TIMESTAMP", $this->tableWallpaper);
@@ -46,7 +46,7 @@ class CmsWallpaperModel extends Model
         }
     }
     
-    public function updateWallpaper($params)
+    public function update($params)
     {
        
         return true;
@@ -89,7 +89,7 @@ class CmsWallpaperModel extends Model
     }
     
     
-    public function findWallpaper($id)
+    public function find($id)
     {
         $output = array();
         
@@ -120,7 +120,7 @@ class CmsWallpaperModel extends Model
     }
     
     
-    public function findAllWallpapers()
+    public function findAll()
     {
         try{
             $query = sprintf("SELECT * FROM %s", $this->tableWallpaper);
@@ -135,7 +135,7 @@ class CmsWallpaperModel extends Model
     }
     
     
-    public function deleteWallpaper($params)
+    public function delete($params)
     {
         
         try{
@@ -159,7 +159,7 @@ class CmsWallpaperModel extends Model
     } 
     
     
-    public function deleteWallpaperImage($params)
+    public function deleteImage($params)
     {
         
         try{

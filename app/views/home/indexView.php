@@ -1,3 +1,4 @@
+
 <div class="banner">
     <? if (!empty($carouselCollection)): ?>
         <? include_once VIEW_PATH . 'home' . DS . '_carouselMain.php'; ?>
@@ -14,7 +15,7 @@
 </div>
 <div class="contentAll colHome">
     <? if(!empty($lattestProjectsCollection)):?>
-    <h2>Latest Projects</h2>
+    <h2><?=$_t['page.latest-projects.title'];?></h2>
     <ul class="latestProjects">
         <? foreach($lattestProjectsCollection as $lp):?>
         <li>
@@ -30,5 +31,6 @@
     <? endif;?>
     <span>fecebook plugin</span>
 </div>
+
 
 
