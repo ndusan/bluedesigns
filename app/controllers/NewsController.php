@@ -11,8 +11,7 @@ class NewsController extends Controller
     public function indexAction($params)
     {
 
+        
+        
     }
-    
-    
-    
 }
