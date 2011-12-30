@@ -1,5 +1,5 @@
 <div class="contentAll colNews">
-    <h2>Whats new</h2> 
+    <h2><?=$_t['page.news.title'];?></h2> 
     <? if(!empty($resultCollection)):?>
     <ul class="news">
         <? foreach($resultCollection as $r):?>

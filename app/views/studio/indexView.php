@@ -31,21 +31,21 @@
     <? endif; ?>
 </div>
 <div class="contentAll colStudio">
-    <h2>What can we do for you?</h2>
+    <h2><?=$_t['page.studio.subtitle'];?></h2>
     <div id="studio">
-        <h3><span class="off">click to view more</span><span class="on">click to view less</span>Visual Identity</h3>
+        <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
         <div>
             <p>This is the answer to question #1.  Pellentesque habitant morbi....</p>
         </div>
-          <h3><span class="off">click to view more</span><span class="on">click to view less</span>Visual Identity</h3>
+          <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
         <div>
             <p>This is the answer to question #2.  Pellentesque habitant morbi....</p>
         </div>
-          <h3><span class="off">click to view more</span><span class="on">click to view less</span>Visual Identity</h3>
+          <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
         <div>
             <p>This is the answer to question #2.  Pellentesque habitant morbi....</p>
         </div>
-          <h3><span class="off">click to view more</span><span class="on">click to view less</span>Visual Identity</h3>
+          <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
         <div>
             <p>This is the answer to question #2.  Pellentesque habitant morbi....</p>
         </div>

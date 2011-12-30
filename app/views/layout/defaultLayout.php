@@ -51,7 +51,7 @@
                         <h4>Naxi Media Group</h4>
                     </div>
                     <div class="quoteIcons">
-                        <h2>What out clients had to say:</h2>
+                        <h2><?=$_t['page.quotes.title'];?></h2>
                         <ul class="clientsLogos">
                             <li><a class="active" href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
                             <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
@@ -65,7 +65,7 @@
         </div>
         <div class="footer">
             <p>&copy;2012 Blue Designs. All rights reserved.</p>
-            <a href="#" class="fb"></a><a href="#" class="tw"></a><a href="#" class="yt"></a>
+            <a href="http://www.facebook.com/bluedesigns" class="fb"></a><a href="#" class="tw"></a><a href="#" class="yt"></a>
             <a class="logoFooter">
                 <img src="<?= IMAGE_PATH . 'logoFooter.png'; ?>" />
             </a>
