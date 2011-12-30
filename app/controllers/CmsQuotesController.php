@@ -5,7 +5,16 @@ class CmsQuotesController extends Controller
     
     public function indexAction($params)
     {
-        $this->set('quotesCollection', $this->db->findAll());
+        if(!empty($params['id']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+            $this->setRenderHTML(0);
+            
+            $this->db->setVisible($params);
+            
+            echo json_encode(array('true'));
+        }else{
+            
+            $this->set('quotesCollection', $this->db->findAll());
+        }
     }
     
     public function addAction($params)

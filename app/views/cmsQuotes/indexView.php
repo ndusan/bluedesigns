@@ -7,13 +7,19 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr> 
-                <th>Created</th> 
+                <th>Client</th>
+                <th>Company</th>
+                <th>Visible</th>
+                <th>Created</th>
                 <th width="100px">Action</th>
           </tr> 
         </thead> 
         <tbody> 
             <? foreach ($quotesCollection as $quotes): ?>
                 <tr> 
+                    <td><?=$quotes['client'];?></td>
+                    <td><?=$quotes['company'];?></td>
+                    <td><input type="checkbox" value="<?=$quotes['id'];?>" <?=($quotes['visible']==1 ? 'checked="checked"' : '')?> /></td>
                     <td><?=$html->convertDate($quotes['created'], true);?></td>
                     <td align="center">
                         <!--Edit-->
@@ -25,12 +31,16 @@
             <? endforeach; ?>
         <tfoot> 
             <tr> 
-                <th>Created</th> 
+                <th>Client</th>
+                <th>Company</th>
+                <th>Visible</th>
+                <th>Created</th>
                 <th>Action</th> 
             </tr> 
         </tfoot> 
     </tbody> 
     </table> 
+    <input type="hidden" id="url" value="/cms/quotes" />
 <? else: ?>
     <div class="noResults">
         There are no results on this page.
