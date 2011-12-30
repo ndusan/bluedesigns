@@ -1,6 +1,6 @@
-<? $action = 'edit/'.$carousel['id'];?>
+<? $action = 'edit/'.$studio['id'];?>
 <ul class="addTop">
-    <li><a href="/cms/carousel">Carousel</a></li>
-    <li><h3>/ Edit carousel</h3></li>
+    <li><a href="/cms/studio">Studio</a></li>
+    <li><h3>/ Edit studio</h3></li>
 </ul>
 <? include_once '_form.php';?>

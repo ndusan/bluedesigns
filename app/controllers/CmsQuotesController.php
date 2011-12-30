@@ -1,11 +1,11 @@
 <?php
 
-class CmsNewsController extends Controller
+class CmsQuotesController extends Controller
 {
     
     public function indexAction($params)
     {
-        $this->set('newsCollection', $this->db->findAllNews());
+        $this->set('quotesCollection', $this->db->findAll());
     }
     
     public function addAction($params)
@@ -13,20 +13,20 @@ class CmsNewsController extends Controller
        
         if(!empty($params['submit'])){
             //Data submited
-            if($id = $this->db->createNews($params['news'])){
+            if($id = $this->db->create($params['quotes'])){
                 //If image uploaded add it
                 if(0 == $params['image']['error'] && !empty($id)){
                     
                     $newImageName = $id.'-'.$params['image']['name'];
                     $this->db->setImageName($id, $newImageName);
-                    $this->uploadImage($newImageName, $params['image'], 'news');
+                    $this->uploadImage($newImageName, $params['image'], 'quotes');
                     
                     //Create thumb
-                    $this->createThumbImage($newImageName, 'news', 200, 95);
+                    $this->createThumbImage($newImageName, 'quotes', 200, 95);
                 }
-                $this->redirect ('cms'.DS.'news', 'success');
+                $this->redirect ('cms'.DS.'quotes', 'success');
             }else{
-                $this->redirect ('cms'.DS.'news'.DS.'add', 'error');
+                $this->redirect ('cms'.DS.'quotes'.DS.'add', 'error');
             }
         }
     }
@@ -37,30 +37,30 @@ class CmsNewsController extends Controller
         if(!empty($params['submit'])){
             //Data submited
 
-            if($this->db->updateNews($params['news'])){
+            if($this->db->update($params['quotes'])){
                 //If image uploaded add it
                 
                 if(0 == $params['image']['error']){
                     
-                    $data = $this->db->getImageName($params['news']['id']);
+                    $data = $this->db->getImageName($params['quotes']['id']);
                     $oldImageName = $data['image_name'];
                     
-                    $newImageName = $params['news']['id'].'-'.$params['image']['name'];
-                    $this->db->setImageName($params['news']['id'], $newImageName);
-                    $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'news');
+                    $newImageName = $params['quotes']['id'].'-'.$params['image']['name'];
+                    $this->db->setImageName($params['quotes']['id'], $newImageName);
+                    $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'quotes');
                     
                     //Delete thumb
                     $oldThumbImageName = 'thumb-'.$oldImageName;
-                    $this->deleteImage($oldThumbImageName, 'news');
+                    $this->deleteImage($oldThumbImageName, 'quotes');
                     //Create thumb
-                    $this->createThumbImage($newImageName, 'news', 200, 95);
+                    $this->createThumbImage($newImageName, 'quotes', 200, 95);
                 }
-                $this->redirect ('cms'.DS.'news', 'success');
+                $this->redirect ('cms'.DS.'quotes', 'success');
             }else{
-                $this->redirect ('cms'.DS.'news'.DS.'edit'.DS.$params['id'], 'error');
+                $this->redirect ('cms'.DS.'quotes'.DS.'edit'.DS.$params['id'], 'error');
             }
         }
-        $this->set('news', $this->db->findNews($params['id']));
+        $this->set('quotes', $this->db->find($params['id']));
     }
     
     public function deleteAction($params)
@@ -68,20 +68,20 @@ class CmsNewsController extends Controller
         $this->setRenderHTML(0);
         
         $data = $this->db->getImageName($params['id']);
-        if($this->db->deleteNews($params)){
+        if($this->db->delete($params)){
             
             //If exist delete
             if(!empty($data)){
                 $oldImageName = $data['image_name'];
-                $this->deleteImage($oldImageName, 'news');
+                $this->deleteImage($oldImageName, 'quotes');
                 
                 //Delete thumb
                 $oldThumbImageName = 'thumb-'.$data['image_name'];
                 $this->deleteImage($oldThumbImageName, 'quotes');
             }
-            $this->redirect ('cms'.DS.'news', 'success');
+            $this->redirect ('cms'.DS.'quotes', 'success');
         }else{
-            $this->redirect ('cms'.DS.'news', 'error');
+            $this->redirect ('cms'.DS.'quotes', 'error');
         }
     }
     
@@ -95,13 +95,13 @@ class CmsNewsController extends Controller
         if(!empty($data)){
             
             $this->db->setImageName($params['id'], '');
-            $this->deleteImage($data['image_name'], 'news');
+            $this->deleteImage($data['image_name'], 'quotes');
             
             //Delete thumb
             $oldThumbImageName = 'thumb-'.$data['image_name'];
-            $this->deleteImage($oldThumbImageName, 'news');
+            $this->deleteImage($oldThumbImageName, 'quotes');
         }
-        $this->redirect ('cms'.DS.'news'.DS.'edit'.DS.$params['id'], 'success');
+        $this->redirect ('cms'.DS.'quotes'.DS.'edit'.DS.$params['id'], 'success');
     }
     
 }

@@ -48,7 +48,7 @@
                     <li><a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a></li>
                     <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'carousel'; ?>">Carousel</a></li>
                     <li><a <?= $this->_controller=='cmsStudio'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'studio'; ?>">Studio</a></li>
-                    <li><a <?= $this->_controller=='cmsSaying'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'saying'; ?>">Saying</a></li>
+                    <li><a <?= $this->_controller=='cmsQuotes'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'quotes'; ?>">Quotes</a></li>
                 </ul>
             </div>
             <div class="content">

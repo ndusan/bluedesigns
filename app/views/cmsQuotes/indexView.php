@@ -1,9 +1,9 @@
 <ul class="addTop">
-    <li><a class="cmsAdd" href="/cms/studio/add" >Add new studio</a></li>
+    <li><a class="cmsAdd" href="/cms/quotes/add" >Add new quotes</a></li>
 </ul>
 
 
-<? if (!empty($studioCollection)): ?>
+<? if (!empty($quotesCollection)): ?>
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr> 
@@ -12,14 +12,14 @@
           </tr> 
         </thead> 
         <tbody> 
-            <? foreach ($studioCollection as $studio): ?>
+            <? foreach ($quotesCollection as $quotes): ?>
                 <tr> 
-                    <td><?=$html->convertDate($studio['created'], true);?></td>
+                    <td><?=$html->convertDate($quotes['created'], true);?></td>
                     <td align="center">
                         <!--Edit-->
-                        <a title="Edit" class="cmsEdit" href="/cms/studio/edit/<?= $studio['id']; ?>"></a>
+                        <a title="Edit" class="cmsEdit" href="/cms/quotes/edit/<?= $quotes['id']; ?>"></a>
                         <!--Delete-->
-                        <a title="Delete" class="jw cmsDelete" href="/cms/studio/delete/<?= $studio['id']; ?>"></a>
+                        <a title="Delete" class="jw cmsDelete" href="/cms/quotes/delete/<?= $quotes['id']; ?>"></a>
                     </td> 
           </tr> 
             <? endforeach; ?>

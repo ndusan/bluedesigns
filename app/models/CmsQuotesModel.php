@@ -1,16 +1,16 @@
 <?php
 
-class CmsStudioModel extends Model
+class CmsQuotesModel extends Model
 {
-    private $tableStudio= 'studio';
+    private $tableQuotes= 'quotes';
     private $tableLanguage= 'language';
-    private $tableStudioLanguage= 'studio_language';
+    private $tableQuotesLanguage= 'quotes_language';
     
     
     public function findAll()
     {
         try{
-            $query = sprintf("SELECT * FROM %s", $this->tableStudio);
+            $query = sprintf("SELECT * FROM %s", $this->tableQuotes);
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
 
@@ -25,7 +25,7 @@ class CmsStudioModel extends Model
     public function find($id)
     {
         try{
-            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableStudio);
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableQuotes);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -38,17 +38,16 @@ class CmsStudioModel extends Model
             $language = array();
             $query = sprintf("SELECT `l`.`iso_code`, `nl`.* FROM %s AS `l` 
                                 INNER JOIN %s AS `nl` ON `l`.`id`=`nl`.`language_id` 
-                                WHERE `nl`.`studio_id`=:studioId", $this->tableLanguage, $this->tableStudioLanguage);
+                                WHERE `nl`.`quotes_id`=:quotesId", $this->tableLanguage, $this->tableQuotesLanguage);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':studioId', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':quotesId', $id, PDO::PARAM_INT);
             $stmt->execute();
             
             $collection = $stmt->fetchAll();
             
             if(!empty($collection)){
                 foreach ($collection as $k=>$v){
-                    $language[$v['iso_code']]['title'] = $v['title'];
                     $language[$v['iso_code']]['text'] = $v['text'];
                 }
             }
@@ -68,8 +67,16 @@ class CmsStudioModel extends Model
     {
         
         try{
+            $query = sprintf("UPDATE %s SET `client`=:client, `company`=:company WHERE `id`=:id", $this->tableQuotes);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':client', $params['client'], PDO::PARAM_STR);
+            $stmt->bindParam(':company', $params['company'], PDO::PARAM_STR);
+            $stmt->bindParam(':quotesId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
             //Set language translation
-            foreach($params['content'] as $k=>$v){
+            foreach($params['text'] as $k=>$v){
                 //Get language_id
                 $query = sprintf("SELECT * FROM %s WHERE `iso_code`=:isoCode", $this->tableLanguage);
                 $stmt = $this->dbh->prepare($query);
@@ -77,15 +84,14 @@ class CmsStudioModel extends Model
                 $stmt->execute();
                 $response = $stmt->fetch();
                 
-                $query = sprintf("UPDATE %s SET `title`=:title, `text`=:text
-                                    WHERE `studio_id`=:studioId AND `language_id`=:languageId",
-                                $this->tableStudioLanguage);
+                $query = sprintf("UPDATE %s SET `text`=:text
+                                    WHERE `quotes_id`=:quotesId AND `language_id`=:languageId",
+                                $this->tableQuotesLanguage);
                 
                 $stmt = $this->dbh->prepare($query);
                 
-                $stmt->bindParam(':title', $params['title'][$k], PDO::PARAM_STR);
                 $stmt->bindParam(':text', $v, PDO::PARAM_STR);
-                $stmt->bindParam(':studioId', $params['id'], PDO::PARAM_INT);
+                $stmt->bindParam(':quotesId', $params['id'], PDO::PARAM_INT);
                 $stmt->bindParam(':languageId', $response['id'], PDO::PARAM_INT);
                 $stmt->execute();
             }
@@ -102,15 +108,17 @@ class CmsStudioModel extends Model
     {
         
         try{
-            $query = sprintf("INSERT INTO %s SET `created`=CURRENT_TIMESTAMP", $this->tableStudio);
+            $query = sprintf("INSERT INTO %s SET `client`=:client, `company`=:company", $this->tableQuotes);
             $stmt = $this->dbh->prepare($query);
             
+            $stmt->bindParam(':client', $params['client'], PDO::PARAM_STR);
+            $stmt->bindParam(':company', $params['company'], PDO::PARAM_STR);
             $stmt->execute();
             
-            $studioId = $this->dbh->lastInsertId();
+            $quotesId = $this->dbh->lastInsertId();
             
             //Set language translation
-            foreach($params['title'] as $k=>$v){
+            foreach($params['text'] as $k=>$v){
                 //Get language_id
                 $query = sprintf("SELECT * FROM %s WHERE `iso_code`=:isoCode", $this->tableLanguage);
                 $stmt = $this->dbh->prepare($query);
@@ -118,20 +126,18 @@ class CmsStudioModel extends Model
                 $stmt->execute();
                 $response = $stmt->fetch();
                 
-                $query = sprintf("INSERT INTO %s SET `studio_id`=:studioId, `language_id`=:languageId, 
-                                                     `title`=:title, `text`=:text",
-                                $this->tableStudioLanguage);
+                $query = sprintf("INSERT INTO %s SET `quotes_id`=:quotesId, `language_id`=:languageId, `text`=:text",
+                                $this->tableQuotesLanguage);
                 
                 $stmt = $this->dbh->prepare($query);
                 
-                $stmt->bindParam(':studioId', $studioId, PDO::PARAM_INT);
+                $stmt->bindParam(':quotesId', $quotesId, PDO::PARAM_INT);
                 $stmt->bindParam(':languageId', $response['id'], PDO::PARAM_INT);
-                $stmt->bindParam(':title', $v, PDO::PARAM_STR);
-                $stmt->bindParam(':text', $params['content'][$k], PDO::PARAM_STR);
+                $stmt->bindParam(':text', $v, PDO::PARAM_STR);
                 $stmt->execute();
             }
             
-            return $studioId;
+            return $quotesId;
         }catch(Exception $e){
             
             return false;
@@ -143,7 +149,7 @@ class CmsStudioModel extends Model
     {
         
         try{
-            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableStudio);
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableQuotes);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -160,7 +166,7 @@ class CmsStudioModel extends Model
     public function setImageName($id, $imageName)
     {
         try{
-            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableStudio);
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableQuotes);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
@@ -179,17 +185,17 @@ class CmsStudioModel extends Model
     {
         
         try{
-            $query = sprintf("DELETE FROM %s WHERE `id`=:id", $this->tableStudio);
+            $query = sprintf("DELETE FROM %s WHERE `id`=:id", $this->tableQuotes);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
             
             
-            $query = sprintf("DELETE FROM %s WHERE `studio_id`=:studioId", $this->tableStudioLanguage);
+            $query = sprintf("DELETE FROM %s WHERE `quotes_id`=:quotesId", $this->tableQuotesLanguage);
             $stmt = $this->dbh->prepare($query);
 
-            $stmt->bindParam(':studioId', $params['id'], PDO::PARAM_INT);
+            $stmt->bindParam(':quotesId', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
             return true;
