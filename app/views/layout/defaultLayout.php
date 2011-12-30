@@ -42,25 +42,7 @@
         </div>
         <div class="bottomW">
             <div class="bottom">
-                <div class="quotes">
-                    <div class="quoteText">
-                        <p>
-                            We needed to capitalise on our market leading position in grassroots sports marketing and Mr B & Friends created an excellent solution for taking the Activate UK brand forward. The design concept encapsulates our business philosophy and the emotive nature of our industry in a creative and memorable way.
-                        </p>
-                        <h2>Nikola Kovacevic</h2>
-                        <h4>Naxi Media Group</h4>
-                    </div>
-                    <div class="quoteIcons">
-                        <h2><?=$_t['page.quotes.title'];?></h2>
-                        <ul class="clientsLogos">
-                            <li><a class="active" href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
-                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
-                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
-                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
-                            <li><a href="#"><img src="<?= IMAGE_PATH . 'naxiLogo.png'; ?>" /></a></li>
-                        </ul>
-                    </div>
-                </div>
+                <? include_once VIEW_PATH . 'home' . DS . '_quotes.php'?>
             </div>
         </div>
         <div class="footer">

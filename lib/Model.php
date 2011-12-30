@@ -13,6 +13,9 @@ class Model
         private $tableLanguage = 'language';
         private $tableLanguageTranslation = 'language_translation';
         
+        private $tableQuotes = 'quotes';
+        private $tableQuotesLanguage = 'quotes_language';
+        
         /**
          * Contructor
          * @return boolean
@@ -80,4 +83,30 @@ class Model
                 return false;
             }
         }
+        
+        
+        
+        public function getQuotes($params)
+        {
+
+            try{
+                $query = sprintf("SELECT * FROM %s AS `q`
+                                    INNER JOIN %s AS `ql` ON `ql`.`quotes_id`=`q`.`id`
+                                    INNER JOIN %s AS `l` ON `l`.`id`=`ql`.`language_id`
+                                    WHERE `l`.`iso_code`=:isoCode AND `q`.`visible`='1' ORDER BY `q`.`id` DESC", 
+                                    $this->tableQuotes,
+                                    $this->tableQuotesLanguage,
+                                    $this->tableLanguage);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+            }catch(Exception $e){
+
+                return false;
+            }
+        }
+
 }

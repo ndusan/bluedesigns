@@ -10,7 +10,8 @@ class WorkController extends Controller
      */
     public function indexAction($params)
     {
-
+        
+        $this->set('quotes', $this->db->getQuotes($params));
     }
     
     
