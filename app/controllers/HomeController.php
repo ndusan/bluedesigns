@@ -15,6 +15,8 @@ class HomeController extends Controller
         $this->set('lattestProjectsCollection', $this->db->getLattestProjects($params, $this->numOfLattestProjects));
         $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('homeCollection', $this->db->getHome($params));
+        
+        $this->set('quotes', $this->db->getQuotes($params));
     }
     
     
