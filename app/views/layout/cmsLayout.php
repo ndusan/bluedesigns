@@ -35,7 +35,7 @@
                 <li <?= $this->_action=='settings'?'class="active"':''; ?>><a  href="<?= DS . 'cms'.DS.'settings'; ?>">Settings</a></li>
                 <li><a href="<?= DS . 'logout'; ?>" class="jl">Logout</a></li>
             </ul>
-            <h1><span>Admin panel</span>Putovanja za dvoje</h1>
+            <h1><span>Admin panel</span>Blue Designs</h1>
         </div>
         <div class="wrapper">
             <div class="sidebar">

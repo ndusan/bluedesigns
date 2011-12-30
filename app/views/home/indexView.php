@@ -15,7 +15,7 @@
 </div>
 <div class="contentAll colHome">
     <? if(!empty($lattestProjectsCollection)):?>
-    <h2>Latest Projects</h2>
+    <h2><?=$_t['page.latest-projects.title'];?></h2>
     <ul class="latestProjects">
         <? foreach($lattestProjectsCollection as $lp):?>
         <li>
