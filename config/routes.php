@@ -160,6 +160,11 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/wallpaper\/delete\/(?P<id>\d*)\/image\/(?P<image_id>\d*)\/?$/', 
+            'controller' => 'cmsWallpaper', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
     
     //CMS news page
     array(  'url'        => '/^cms\/news\/?$/', 
@@ -238,26 +243,36 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/studio\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsStudio', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
     
-    //CMS saying page
-    array(  'url'        => '/^cms\/saying\/?$/', 
-            'controller' => 'cmsSaying', 
+    //CMS quotes page
+    array(  'url'        => '/^cms\/quotes\/?$/', 
+            'controller' => 'cmsQuotes', 
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/saying\/add\/?$/', 
-            'controller' => 'cmsSaying', 
+    array(  'url'        => '/^cms\/quotes\/add\/?$/', 
+            'controller' => 'cmsQuotes', 
             'action'     => 'add', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/saying\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsSaying', 
+    array(  'url'        => '/^cms\/quotes\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsQuotes', 
             'action'     => 'edit', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/saying\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsSaying', 
+    array(  'url'        => '/^cms\/quotes\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsQuotes', 
             'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/quotes\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsQuotes', 
+            'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
 );

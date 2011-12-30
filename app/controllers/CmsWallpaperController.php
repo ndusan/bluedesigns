@@ -6,11 +6,12 @@ class CmsWallpaperController extends Controller
     public function indexAction($params)
     {
         
-        $this->set('wallpaperCollection', $this->db->findAllWallpapers());
+        $this->set('wallpaperCollection', $this->db->findAll());
     }
     
     public function addAction($params)
     {
+        
         if(!empty($params['submit'])){
             
             $imageGroups = array('800x600', '1024x768', '1400x1900', '1600x1200');
@@ -22,18 +23,18 @@ class CmsWallpaperController extends Controller
             
             if(!$uploaded) $this->redirect ('cms'.DS.'wallpaper'.DS.'add', 'error');
             
-            //First wil be thumb
+            //First will be thumb
             $isThumb = true;
             
             //Data submited
-            if($id = $this->db->createWallpaper($params['wallpaper'])){
+            if($id = $this->db->create($params['wallpaper'])){
                 //If image uploaded add it
                 $i = 0;
                 foreach($imageGroups as $g){
                     if(0 == $params['image']['error'][$g] && !empty($id)){
 
                         $newImageName = (time()+$i++).'-'.$params['image']['name'][$g];
-
+                        
                         $this->db->setImageName($id, $newImageName, $g);
                         
                         $image = array('name'=>$params['image']['name'][$g],
@@ -52,6 +53,7 @@ class CmsWallpaperController extends Controller
                         }
                     }
                 }
+                
                 $this->redirect ('cms'.DS.'wallpaper', 'success');
             }else{
                 $this->redirect ('cms'.DS.'wallpaper'.DS.'add', 'error');
@@ -66,7 +68,7 @@ class CmsWallpaperController extends Controller
 
             $imageGroups = array('800x600', '1024x768', '1400x1900', '1600x1200');
             
-            if($this->db->updateWallpaper($params['wallpaper'])){
+            if($this->db->update($params['wallpaper'])){
                 $i=0;
                 foreach($imageGroups as $g){
                     if(isset($params['image']['error'][$g]) && 0 == $params['image']['error'][$g] && !empty($params['wallpaper']['id'])){
@@ -90,7 +92,7 @@ class CmsWallpaperController extends Controller
             }
         }
         
-        $this->set('wallpaper', $this->db->findWallpaper($params['id']));
+        $this->set('wallpaper', $this->db->find($params['id']));
     }
     
     public function deleteAction($params)
@@ -100,7 +102,7 @@ class CmsWallpaperController extends Controller
         $data = $this->db->getImageNames($params['id']);
         $thumbData = $this->db->getThumbImageName($params['id']);
         
-        if($this->db->deleteWallpaper($params)){
+        if($this->db->delete($params)){
             
             //If exist delete
             if(!empty($data)){
@@ -131,7 +133,7 @@ class CmsWallpaperController extends Controller
         $data = $this->db->getImageName($params['image_id'], $params['group']);
         $thumbData = $this->db->getThumbImageName($params['id']);
         
-        if($this->db->deleteWallpaperImage($params)){
+        if($this->db->deleteImage($params)){
             
             //If exist delete
             if(!empty($data)){
@@ -140,14 +142,16 @@ class CmsWallpaperController extends Controller
             }
             
             if(!$this->db->checkIfLastImage($params)){
-                $this->deleteWallpaperAction($params);
+                $this->deleteAction($params);
+                
+                if(!empty($thumbData)){
+
+                    $oldImageName = $thumbData['image_name'];
+                    $this->deleteImage($oldImageName, 'wallpaper');
+                }
             }
             
-            if(!empty($thumbData)){
-                
-                $oldImageName = $thumbData['image_name'];
-                $this->deleteImage($oldImageName, 'wallpaper');
-            }
+            
             
             $this->redirect ('cms'.DS.'wallpaper'.DS.'edit'.DS.$params['id'], 'success');
         }else{

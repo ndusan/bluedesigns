@@ -62,7 +62,7 @@
                             <input type="file" name="image" value=""/>
                             <? if (isset($news['id']) && !empty($news['image_name'])): ?>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" target="_blank"><?= $news['image_name']; ?></a>
-                                [<a href="/cms/news/delete/image/<?= $news['id']; ?>" target="_blank">Delete</a>]
+                                [<a href="/cms/news/delete/image/<?= $news['id']; ?>" class="jw">Delete</a>]
                             <? endif; ?>
                         </td>
                     </tr>

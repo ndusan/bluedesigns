@@ -5,7 +5,7 @@ class CmsStudioController extends Controller
     
     public function indexAction($params)
     {
-        $this->set('carouselCollection', $this->db->findAllCarousel());
+        $this->set('studioCollection', $this->db->findAll());
     }
     
     public function addAction($params)
@@ -13,17 +13,20 @@ class CmsStudioController extends Controller
        
         if(!empty($params['submit'])){
             //Data submited
-            if($id = $this->db->createCarousel($params['carousel'])){
+            if($id = $this->db->create($params['studio'])){
                 //If image uploaded add it
                 if(0 == $params['image']['error'] && !empty($id)){
                     
                     $newImageName = $id.'-'.$params['image']['name'];
                     $this->db->setImageName($id, $newImageName);
-                    $this->uploadImage($newImageName, $params['image'], 'carousel');
+                    $this->uploadImage($newImageName, $params['image'], 'studio');
+                    
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'studio', 200, 95);
                 }
-                $this->redirect ('cms'.DSh.'carousel', 'success');
+                $this->redirect ('cms'.DS.'studio', 'success');
             }else{
-                $this->redirect ('cms'.DS.'carousel'.DS.'add', 'error');
+                $this->redirect ('cms'.DS.'studio'.DS.'add', 'error');
             }
         }
     }
@@ -34,24 +37,30 @@ class CmsStudioController extends Controller
         if(!empty($params['submit'])){
             //Data submited
 
-            if($this->db->updateCarousel($params['carousel'])){
+            if($this->db->update($params['studio'])){
                 //If image uploaded add it
                 
                 if(0 == $params['image']['error']){
                     
-                    $data = $this->db->getImageName($params['carousel']['id']);
+                    $data = $this->db->getImageName($params['studio']['id']);
                     $oldImageName = $data['image_name'];
                     
-                    $newImageName = $params['carousel']['id'].'-'.$params['image']['name'];
-                    $this->db->setImageName($params['carousel']['id'], $newImageName);
-                    $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'carousel');
+                    $newImageName = $params['studio']['id'].'-'.$params['image']['name'];
+                    $this->db->setImageName($params['studio']['id'], $newImageName);
+                    $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'studio');
+                    
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'studio');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'studio', 200, 95);
                 }
-                $this->redirect ('cms'.DS.'carousel', 'success');
+                $this->redirect ('cms'.DS.'studio', 'success');
             }else{
-                $this->redirect ('cms'.DS.'carousel'.DS.'edit'.DS.$params['id'], 'error');
+                $this->redirect ('cms'.DS.'studio'.DS.'edit'.DS.$params['id'], 'error');
             }
         }
-        $this->set('carousel', $this->db->findCarousel($params['id']));
+        $this->set('studio', $this->db->find($params['id']));
     }
     
     public function deleteAction($params)
@@ -59,17 +68,40 @@ class CmsStudioController extends Controller
         $this->setRenderHTML(0);
         
         $data = $this->db->getImageName($params['id']);
-        if($this->db->deleteCarousel($params)){
+        if($this->db->delete($params)){
             
             //If exist delete
             if(!empty($data)){
                 $oldImageName = $data['image_name'];
-                $this->deleteImage($oldImageName, 'carousel');
+                $this->deleteImage($oldImageName, 'studio');
+                
+                //Delete thumb
+                $oldThumbImageName = 'thumb-'.$data['image_name'];
+                $this->deleteImage($oldThumbImageName, 'quotes');
             }
-            $this->redirect ('cms'.DS.'carousel', 'success');
+            $this->redirect ('cms'.DS.'studio', 'success');
         }else{
-            $this->redirect ('cms'.DS.'carousel', 'error');
+            $this->redirect ('cms'.DS.'studio', 'error');
         }
+    }
+    
+    public function deleteImageAction($params)
+    {
+        $this->setRenderHTML(0);
+        
+        $data = $this->db->getImageName($params['id']);
+
+        //If exist delete
+        if(!empty($data)){
+            
+            $this->db->setImageName($params['id'], '');
+            $this->deleteImage($data['image_name'], 'studio');
+            
+            //Delete thumb
+            $oldThumbImageName = 'thumb-'.$data['image_name'];
+            $this->deleteImage($oldThumbImageName, 'studio');
+        }
+        $this->redirect ('cms'.DS.'studio'.DS.'edit'.DS.$params['id'], 'success');
     }
     
 }

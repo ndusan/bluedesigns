@@ -37,7 +37,7 @@ class CmsContactModel extends Model
                 
                 if(!empty($result)){
                     foreach($result as $res){
-                        
+                        $output['link'] = $res['link'];
                         $output[$r['iso_code']] = $res;
                     }
                 }
@@ -81,6 +81,12 @@ class CmsContactModel extends Model
                 
                 if(!empty($result)){
                     //UPDATE
+                    $query = sprintf("UPDATE %s SET `link`=:link WHERE `id`=:id", $this->tableStatic);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+                    $stmt->bindParam(':id', $result['id'], PDO::PARAM_INT);
+                    $stmt->execute();
                     
                     $query = sprintf("UPDATE %s SET `text`=:text WHERE `language_id`=:languageId AND `static_id`=:staticId", $this->tableStaticLanguage);
                     $stmt = $this->dbh->prepare($query);
@@ -104,10 +110,11 @@ class CmsContactModel extends Model
                     
                     if(empty($static)){
                         
-                        $query = sprintf("INSERT INTO %s SET `type`=:type", $this->tableStatic);
+                        $query = sprintf("INSERT INTO %s SET `type`=:type, `link`=:link", $this->tableStatic);
                         $stmt = $this->dbh->prepare($query);
 
                         $stmt->bindParam(':type', $this->type, PDO::PARAM_STR);
+                        $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
                         $stmt->execute();
 
                         $staticId = $this->dbh->lastInsertId();

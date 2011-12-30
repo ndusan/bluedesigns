@@ -3,20 +3,14 @@
         <li><a href="#fragment-1">Serbian</a></li>
         <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
-    <form action="/cms/studio/<?= $action; ?>" method="post" enctype="multipart/form-data">
+    <form action="/cms/quotes/<?= $action; ?>" method="post" enctype="multipart/form-data">
         <div id="fragment-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td>Title:</td>
-                        <td>
-                            <input type="text" name="studio[title][sr]" value="<?= @$studio['lang']['sr']['title']; ?>" class="jr"/>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="studio[content][sr]" class="jr"><?= @$studio['lang']['sr']['text']; ?></textarea>
+                            <textarea name="quotes[text][sr]" class="jr"><?= @$quotes['lang']['sr']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -26,15 +20,9 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td>Title:</td>
-                        <td>
-                            <input type="text" name="studio[title][en]" value="<?= @$studio['lang']['en']['title']; ?>"/>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="studio[content][en]"><?= @$studio['lang']['en']['text']; ?></textarea>
+                            <textarea name="quotes[text][en]"><?= @$quotes['lang']['en']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -48,15 +36,27 @@
                         <td><span class="jtooltip" title="Maximum image width 530px">Image:</span></td>
                         <td>
                             <input type="file" name="image" value=""/>
-                            <? if (isset($studio['id']) && !empty($studio['image_name'])): ?>
-                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'studio' . DS . $studio['image_name']; ?>" target="_blank"><?= $studio['image_name']; ?></a>
-                                [<a href="/cms/studio/delete/image/<?= $studio['id']; ?>" class="jw">Delete</a>]
+                            <? if (isset($quotes['id']) && !empty($quotes['image_name'])): ?>
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'quotes' . DS . $quotes['image_name']; ?>" target="_blank"><?= $quotes['image_name']; ?></a>
+                                [<a href="/cms/quotes/delete/image/<?= $quotes['id']; ?>" class="jw">Delete</a>]
                             <? endif; ?>
                         </td>
                     </tr>
                     <tr>
+                        <td>Client:</td>
+                        <td>
+                            <input type="text" name="quotes[client]" value="<?= @$quotes['client']; ?>" class="jr"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Company:</td>
+                        <td>
+                            <input type="text" name="quotes[company]" value="<?= @$quotes['company']; ?>" class="jr"/>
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2" align="center">
-                            <input type="hidden" name="studio[id]" value="<?= @$studio['id']; ?>" />
+                            <input type="hidden" name="quotes[id]" value="<?= @$quotes['id']; ?>" />
                             <input type="submit" value="Submit" name="submit" />
                         </td>
                     </tr>
