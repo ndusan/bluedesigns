@@ -150,6 +150,11 @@ $routes = array(
             'action'     => 'add', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/wallpaper\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsWallpaper', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
     array(  'url'        => '/^cms\/wallpaper\/delete\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsWallpaper', 
             'action'     => 'delete', 

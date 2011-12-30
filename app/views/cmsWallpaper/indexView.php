@@ -15,10 +15,11 @@
         <tbody> 
             <? foreach ($wallpaperCollection as $w): ?>
                 <tr> 
-                    <td><?= $w['name']; ?></td> 
-                    <td><?= $w['description']; ?></td> 
+                    <td><?= $w['image_name']; ?></td> 
                     <td><?= $html->convertDate($w['created'], true); ?></td> 
                     <td align="center">
+                        <!--Edit-->
+                        <a class="cmsEdit" title="Edit" href="/cms/wallpaper/edit/<?= $w['id']; ?>" ></a>
                         <!--Delete-->
                         <a class="jw cmsDelete" title="Delete" href="/cms/wallpaper/delete/<?= $w['id']; ?>" ></a>
                     </td> 
