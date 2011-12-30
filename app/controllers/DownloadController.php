@@ -10,8 +10,8 @@ class DownloadController extends Controller
      */
     public function indexAction($params)
     {
-
         
+        $this->set('wallpaperCollection', $this->db->getWallpapers($params));
         $this->set('quotes', $this->db->getQuotes($params));
     }
     
