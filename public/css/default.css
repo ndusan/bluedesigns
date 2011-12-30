@@ -10,6 +10,7 @@ em,strong{}
 ol,ul {list-style:none;}
 caption {text-align:center;}
 
+
 h1,h2,h3,h4 {font-size:100%; margin:0; padding:0; font-weight:normal;}
 q:before,q:after {content:'';}
 abbr,acronym { border:0;}
@@ -56,7 +57,7 @@ ul.mainNav a.download:hover, ul.mainNav a.download.active {background-position:-
 ul.mainNav a.contact:hover, ul.mainNav a.contact.active {background-position:-540px 0;}
 
 .contentW {background-color:#FFF;}
-.content {width:960px; margin:0 auto;}
+.content {width:960px; margin:0 auto; overflow:hidden;}
 
 .bottomW {background-color:#c7dff4; padding:10px 0; border-bottom:solid 10px #3d85c6;}
 .bottom {width:960px; margin:0 auto;}
@@ -90,6 +91,7 @@ ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolu
 .homeContent .homeText {width:480px; padding:0 0 30px;}
 .homeContent img {position:absolute; bottom:20px; right:0;}
 
+
 ul.latestProjects {overflow:hidden; padding:20px 0 15px;}
 ul.latestProjects li {float:left; margin:0 13px 0 0; padding:10px; position:relative; background-image: url(../images/mask.jpg);}
 ul.latestProjects li span {display:none; position:absolute; bottom:10px; left:10px; width:190px; padding:15px 10px; background-image: url(../images/mask1.png);}
@@ -104,6 +106,7 @@ ul.latestProjects li.last {margin:0;}
 .colHome h2 {color:#92278f;}
 .colStudio h2 {color:#8dc63f;}
 .colDownloads h2 {color:#e30613;}
+.colWork h2 {color:#f39200;}
 
 #studio {position:relative; padding:20px 0 15px;}
 #studio h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#FFF; line-height:40px; padding:0 10px 20px; background:transparent url(../images/studioBg1.png) scroll repeat-x 0 0;}
@@ -121,3 +124,13 @@ ul.downloads li span {display:none; color:#FFF; position:absolute; bottom:10px; 
 ul.downloads li a {color:#FFF;}
 ul.downloads li:hover span {display:block; text-align:center;}
 ul.downloads li.last {margin:0;}
+
+.workSidebar {width:280px; float:left;}
+.workContent {width:660px; float:right;}
+.workContent h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#f39200; font-size:24px;}
+.workContent p {padding:5px 0; font-family:"Georgia", sans-serif;}
+
+ul.clientsList {padding:10px 0;}
+ul.clientsList li {padding:0 0 5px;}
+ul.clientsList li a {font-family:"Georgia", sans-serif;}
+ul.clientsList li a.active {color:#f39200;}
