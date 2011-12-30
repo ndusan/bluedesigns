@@ -13,29 +13,21 @@
     <? endif;?>
 </div>
 <div class="contentAll colHome">
+    <? if(!empty($lattestProjectsCollection)):?>
     <h2>Latest Projects</h2>
     <ul class="latestProjects">
+        <? foreach($lattestProjectsCollection as $lp):?>
         <li>
-            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                <span>Naziv klijenta</span>
+            <a href="<?='http://'.rtrim('http://', $lp['link']);?>">
+                <? if(!empty($lp['image_name'])):?>
+                <img src="<?= PUBLIC_UPLOAD_PATH .'work'.DS. $lp['image_name']; ?>" />
+                <? endif;?>
+                <span><?=$lp['name'];?></span>
             </a>
         </li>
-        <li>
-            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                <span>Naziv klijenta</span>
-            </a>
-        </li>
-        <li>
-            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                <span>Naziv klijenta</span>
-            </a>
-        </li>
-        <li class="last">
-            <a href="#"><img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                <span>Naziv klijenta</span>
-            </a>
-        </li>
+        <? endforeach; ?>
     </ul>
+    <? endif;?>
     <span>fecebook plugin</span>
 </div>
 

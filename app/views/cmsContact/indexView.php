@@ -35,6 +35,12 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
+                        <td>Link</td>
+                        <td>
+                            <input type="text" name="contact[link]" value="<?= @$contact['link'];?>" />
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2" align="center">
                             <input type="submit" value="Submit" name="submit" />
                             <input type="hidden" name="contact[id]" value="<?= @$contact['id']; ?>" />

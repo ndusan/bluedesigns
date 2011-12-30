@@ -3,6 +3,7 @@
 class HomeController extends Controller
 {
     
+    private $numOfLattestProjects = 5;
     
     /**
      * HOME PAGE
@@ -11,6 +12,7 @@ class HomeController extends Controller
     public function indexAction($params)
     {
         
+        $this->set('lattestProjectsCollection', $this->db->getLattestProjects($params, $this->numOfLattestProjects));
         $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('homeCollection', $this->db->getHome($params));
     }
