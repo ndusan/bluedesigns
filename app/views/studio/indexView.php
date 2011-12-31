@@ -1,15 +1,8 @@
 <script>
-    $(document).ready(function() {
-        $('#studio h3').each(function() {
-            var tis = $(this), state = false, answer = tis.next('div').slideUp();
-            tis.click(function() {
-                state = !state;
-                answer.slideToggle(state);
-                tis.toggleClass('active',state);
-            });
-        });
-    });
-</script>
+	$(function() {
+		$( "#studio" ).accordion();
+	});
+	</script>
 <div class="banner">
     <? if (!empty($carouselCollection)): ?>
         <div id="slides">
