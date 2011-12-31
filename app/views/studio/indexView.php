@@ -1,47 +1,28 @@
-<script>
-	$(function() {
-		$( "#studio" ).accordion();
-	});
-	</script>
 <div class="banner">
     <? if (!empty($carouselCollection)): ?>
-        <div id="slides">
-            <div class="slides_container">
-                <? foreach ($carouselCollection as $cc): ?>
-                    <div class="slide">
-                        <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
-                        <div class="desc">
-                            <? if (!empty($cc['link'])): ?>
-                                <!-- Link -->
-                                <a href="http://<?= rtrim($cc['link'], 'http://'); ?>" target="_blank">link</a>
-                            <? endif; ?>
-                            <p><?= $cc['text']; ?></p>
-                        </div>
-                    </div>
-                <? endforeach; ?>
-            </div>
-        </div>
+        <? include_once VIEW_PATH . 'home' . DS . '_carouselMain.php'; ?>
     <? endif; ?>
 </div>
 <div class="contentAll colStudio">
     <h2><?=$_t['page.studio.subtitle'];?></h2>
+    <? if(!empty($studioCollection)):?>
     <div id="studio">
-        <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
+        <? foreach($studioCollection as $s):?>
+        <h3>
+            <span class="off">
+                <?=$_t['page.view-more.link'];?>
+            </span>
+            <span class="on"><?=$_t['page.view-less.link'];?>
+            </span><?=$s['title'];?>
+        </h3>
+        <? if(!empty($s['image_name'])):?>
+        <img src="<?=PUBLIC_UPLOAD_PATH . 'studio' . DS . $s['image_name']; ?>" />
+        <? endif; ?>
         <div>
-            <p>This is the answer to question #1.  Pellentesque habitant morbi....</p>
+            <?=$s['text'];?>
         </div>
-          <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
-        <div>
-            <p>This is the answer to question #2.  Pellentesque habitant morbi....</p>
-        </div>
-          <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
-        <div>
-            <p>This is the answer to question #2.  Pellentesque habitant morbi....</p>
-        </div>
-          <h3><span class="off"><?=$_t['page.view-more.link'];?></span><span class="on"><?=$_t['page.view-less.link'];?></span>Visual Identity</h3>
-        <div>
-            <p>This is the answer to question #2.  Pellentesque habitant morbi....</p>
-        </div>
+        <? endforeach;?>
     </div>
+    <? endif;?>
     <span>fecebook plugin</span>
 </div>

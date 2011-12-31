@@ -72,7 +72,7 @@ class CmsQuotesModel extends Model
             
             $stmt->bindParam(':client', $params['client'], PDO::PARAM_STR);
             $stmt->bindParam(':company', $params['company'], PDO::PARAM_STR);
-            $stmt->bindParam(':quotesId', $params['id'], PDO::PARAM_INT);
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
             
             //Set language translation
