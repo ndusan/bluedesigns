@@ -20,11 +20,24 @@ var App = App || {};
             
             
             //Set check on required fields
+            $('input.form').focus(function(){
+                if ($(this).attr('title') == $(this).val()) $(this).val('');
+            });
+            $('input.form').blur(function(){
+                if ($(this).val().length <= 0) $(this).val($(this).attr('title'));
+            });
+            $('textarea.form').focus(function(){
+                if ($(this).attr('title') == $(this).html()) $(this).html('');
+            });
+            $('textarea.form').blur(function(){
+                if ($(this).html().length <= 0) $(this).html($(this).attr('title'));
+            });
+            
             $('body').delegate('form', 'submit', function(){
                 var allOk = true;
                 
                 $('.jr').each(function(){
-                    if($(this).val().length <= 0){
+                    if($(this).val().length <= 0 || $(this).attr('title') == $(this).val() || $(this).attr('title') == $(this).html()){
                         
                         $(this).addClass('warning');
                         $(this).closest('tr').addClass('warningTr');

@@ -14,7 +14,16 @@ class ContactController extends Controller
         
         if(!empty($params['submit'])){
             
+            $array = array('name' => 'Name',
+                           'email'=> 'E-mail',
+                           'phone'=> 'Phone',
+                           'company'=>'Company',
+                           'country'=>'Conutry',
+                           'message'=>'Message');
             
+            $this->sendEmail(MAIL_TO, 'Contact form', $params['contact'], MAIL_FROM, $array);
+            
+            $this->set('sent', true);
         }
         
         $this->set('contactCollection', $this->db->getContact($params));
