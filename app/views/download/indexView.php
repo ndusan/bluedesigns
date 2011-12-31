@@ -1,4 +1,3 @@
-
 <div class="banner">
     <? if (!empty($carouselCollection)): ?>
         <div id="slides">
@@ -21,31 +20,23 @@
 </div>
 <div class="contentAll colDownloads">
     <h2><?=$_t['page.download.title'];?></h2>
+    <? if(!empty($wallpaperCollection)):?>
     <ul class="downloads">
+        <? foreach($wallpaperCollection as $w):?>
         <li>
-            <img src="<?= IMAGE_PATH . 'dummy3.jpg'; ?>" />
-            <span><a href="#">800x600</a> | <a href="#">800x600</a> | <a href="#">800x600</a></span>
+            <img src="<?= PUBLIC_UPLOAD_PATH . 'wallpaper' .DS. $w['image_name']; ?>" />
+            <? if(!empty($w['other'])):?>
+            <span>
+                <? $i = 0;?>
+                <? foreach($w['other'] as $o):?>
+                <a href="<?= PUBLIC_UPLOAD_PATH . 'wallpaper' .DS. $o['image_name']; ?>" target="_blank"><?=$o['group'];?></a>
+                <?=(count($w['other'])>++$i ? '|' : '');?>
+                <? endforeach;?>
+            </span>
+            <? endif; ?>
         </li>
-        <li>
-            <img src="<?= IMAGE_PATH . 'dummy3.jpg'; ?>" />
-            <span><a href="#">800x600</a> | <a href="#">800x600</a> | <a href="#">800x600</a></span>
-        </li>
-        <li class="last">
-            <img src="<?= IMAGE_PATH . 'dummy3.jpg'; ?>" />
-            <span><a href="#">800x600</a> | <a href="#">800x600</a> | <a href="#">800x600</a></span>
-        </li>
-        <li>
-            <img src="<?= IMAGE_PATH . 'dummy3.jpg'; ?>" />
-            <span><a href="#">800x600</a> | <a href="#">800x600</a> | <a href="#">800x600</a></span>
-        </li>
-        <li>
-            <img src="<?= IMAGE_PATH . 'dummy3.jpg'; ?>" />
-            <span><a href="#">800x600</a> | <a href="#">800x600</a> | <a href="#">800x600</a></span>
-        </li>
-        <li class="last">
-            <img src="<?= IMAGE_PATH . 'dummy3.jpg'; ?>" />
-            <span><a href="#">800x600</a> | <a href="#">800x600</a> | <a href="#">800x600</a></span>
-        </li>
+        <? endforeach;?>
     </ul>
+    <? endif; ?>
     <span>fecebook plugin</span>
 </div>
