@@ -89,7 +89,7 @@ ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolu
 .homeContent p {padding:10px 0;}
 .homeContent h1 {color:#92278f; line-height:50px;}
 .homeContent .homeText {width:480px; padding:0 0 30px;}
-.homeContent img {position:absolute; bottom:20px; right:0;}
+.homeContent img {float:right; padding:20px 0;}
 
 
 ul.latestProjects {overflow:hidden; padding:20px 0 15px;}
@@ -130,7 +130,7 @@ ul.downloads li:hover span {display:block; text-align:center;}
 ul.downloads li.last {margin:0;}
 
 .workSidebar {width:280px; float:left;}
-.workContent {width:660px; float:right;}
+.workContent {width:660px; float:right; padding:0 0 100px;}
 .workContent h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#f39200; font-size:24px;}
 .workContent p {padding:5px 0; font-family:"Georgia", sans-serif;}
 
@@ -166,7 +166,7 @@ ul.contact input[type=text]:focus, ul.contact textarea:focus {border-color:#3d85
 .banner .slides_container .slide {width:940px; height:280px; display:block;}
 .banner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:900px; background-image:url(../images/mask.png);}
 
-.workBanner {padding:10px 0 30px;}
+.workBanner {padding:0 0 30px; margin:0 0 10px; border-bottom:dotted 1px #CCC;}
 .workBanner #slides {position:relative; padding:10px;  background-image: url(../images/mask.jpg);}
 .workBanner .slides_container {width:640px; height:280px;} 
 .workBanner .slides_container p {padding:10px 0; color:#FFF;}
