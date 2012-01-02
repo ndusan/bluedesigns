@@ -2,8 +2,9 @@
     <h2><?=$_t['page.news.title'];?></h2> 
     <? if(!empty($resultCollection)):?>
     <ul class="news">
+        <? $i=1;?>
         <? foreach($resultCollection as $r):?>
-        <li>
+        <li <?=($i++>2 ? 'class="last"' : '');?>>
             <? if($r['image_name']):?>
             <div class="newsImg">
                 <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . $r['image_name']; ?>" />
