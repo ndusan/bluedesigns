@@ -36,28 +36,30 @@
 <? endforeach;?>
     App.Home.allQuotes = <?=json_encode($output);?>;
     
-    $('body').delegate('.jQuote', 'click', function(e){
-        e.preventDefault();
-        
-        //Set image active
-        var cImg;
-        var cId = $(this).attr('id');
+    $(document).ready(function() {
+        $('body').delegate('.jQuote', 'click', function(e){
+            e.preventDefault();
 
-        //Set text
-        $('.jQuoteText').html(App.Home.allQuotes[cId]['text']);
-        //Set client
-        $('.jQuoteClient').html(App.Home.allQuotes[cId]['client']);
-        //Set company
-        $('.jQuoteCompany').html(App.Home.allQuotes[cId]['company']);
-        
-        $('.clientsLogos a').each(function(){
-            if(cId != $(this).find('img').attr('id')){
-                $(this).removeClass('active');
-            }else{
-                $(this).addClass('active');
-            }
+            //Set image active
+            var cImg;
+            var cId = $(this).attr('id');
+
+            //Set text
+            $('.jQuoteText').html(App.Home.allQuotes[cId]['text']);
+            //Set client
+            $('.jQuoteClient').html(App.Home.allQuotes[cId]['client']);
+            //Set company
+            $('.jQuoteCompany').html(App.Home.allQuotes[cId]['company']);
+
+            $('.clientsLogos a').each(function(){
+                if(cId != $(this).find('img').attr('id')){
+                    $(this).removeClass('active');
+                }else{
+                    $(this).addClass('active');
+                }
+            });
+
         });
-        
     });
 </script>
 <? endif;?>
