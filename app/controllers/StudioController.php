@@ -11,9 +11,10 @@ class StudioController extends Controller
     public function indexAction($params)
     {
 
+        //For all
+        $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('quotes', $this->db->getQuotes($params));
+        
+        $this->set('studioCollection', $this->db->getStudio($params));
     }
-    
-    
-    
 }

@@ -1,6 +1,6 @@
 var App = App || {};
 (function($) {
-    App.Home = {
+    App.Contact = {
         init: function() {
             
         }, 

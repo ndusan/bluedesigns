@@ -1,6 +1,6 @@
 var App = App || {};
 (function($) {
-    App.Home = {
+    App.Studio = {
         init: function() {
             
         }, 
@@ -11,6 +11,8 @@ var App = App || {};
                 effect: 'fade',
                 play: 5000
             });
+            
+            $('#studio').accordion();
         }
     };
 })(this.jQuery)

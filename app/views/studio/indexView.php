@@ -1,29 +1,18 @@
+<<<<<<< HEAD
 <script>
     $(function() {
         $( "#studio" ).accordion();
     });
 </script>
+=======
+>>>>>>> d65e9af3e87db7c92b934470e5ba96f98c2ffdc2
 <div class="banner">
     <? if (!empty($carouselCollection)): ?>
-        <div id="slides">
-            <div class="slides_container">
-                <? foreach ($carouselCollection as $cc): ?>
-                    <div class="slide">
-                        <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
-                        <div class="desc">
-                            <? if (!empty($cc['link'])): ?>
-                                <!-- Link -->
-                                <a href="http://<?= rtrim($cc['link'], 'http://'); ?>" target="_blank">link</a>
-                            <? endif; ?>
-                            <p><?= $cc['text']; ?></p>
-                        </div>
-                    </div>
-                <? endforeach; ?>
-            </div>
-        </div>
+        <? include_once VIEW_PATH . 'home' . DS . '_carouselMain.php'; ?>
     <? endif; ?>
 </div>
 <div class="contentAll colStudio">
+<<<<<<< HEAD
     <h2>About Blue Designs</h2>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -100,7 +89,27 @@
                     <a href="#">view our work</a>
                 </p>
             </span>
+=======
+    <h2><?=$_t['page.studio.subtitle'];?></h2>
+    <? if(!empty($studioCollection)):?>
+    <div id="studio">
+        <? foreach($studioCollection as $s):?>
+        <h3>
+            <span class="off">
+                <?=$_t['page.view-more.link'];?>
+            </span>
+            <span class="on"><?=$_t['page.view-less.link'];?>
+            </span><?=$s['title'];?>
+        </h3>
+        <? if(!empty($s['image_name'])):?>
+        <img src="<?=PUBLIC_UPLOAD_PATH . 'studio' . DS . $s['image_name']; ?>" />
+        <? endif; ?>
+        <div>
+            <?=$s['text'];?>
+>>>>>>> d65e9af3e87db7c92b934470e5ba96f98c2ffdc2
         </div>
+        <? endforeach;?>
     </div>
+    <? endif;?>
     <span>fecebook plugin</span>
 </div>

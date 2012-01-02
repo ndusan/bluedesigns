@@ -2,36 +2,41 @@
     <h2>Feel free to contact us</h2> 
     <ul class="contact">
         <li>
-            <p>Blue Designs</p>
-            <p>
-                Bata Lakina 22,
-                11060 Belgrade,
-                Serbia
-            </p>
-            <p>
-                tel: +381 (11) 27 59 513
-                mob: +381 (64) 26 24 284
-                info@blue-designs.rs
-                www.blue-designs.rs
-            </p>
+            <?=$contactCollection['text'];?>
         </li>
         <li>
             <ul>
-                <form>
-                    <li><span>*</span><input type="text" name="name" value="name" /></li>
-                    <li><span>*</span><input type="text" name="" value="e-mail address" /></li>
-                    <li><span>*</span><input type="text" name="" value="phone" /></li>
-                    <li><input type="text" name="" value="company" /></li>
-                    <li><input type="text" name="" value="country" /></li>
-                    <li><textarea name="" rows="4" cols="20">text field</textarea></li>
-                    <li><input type="submit" value="Send" /></li>
+                <? if(!empty($sent)):?>
+                Message sent!
+                <? endif;?>
+                <form action="<?=DS.$params['lang'].DS.'contact';?>" method="post">
+                    <li>
+                        <span>*</span>
+                        <input type="text" name="contact[name]" value="name" title="name" class="jr form" />
+                    </li>
+                    <li>
+                        <span>*</span>
+                        <input type="text" name="contact[email]" value="e-mail address" title="e-mail address" class="jr form" />
+                    </li>
+                    <li>
+                        <span>*</span>
+                        <input type="text" name="contact[phone]" value="phone" title="phone" class="jr form" />
+                    </li>
+                    <li><input type="text" name="contact[company]" value="company" title="company" class="form"/></li>
+                    <li><input type="text" name="contact[country]" value="country" title="country" class="form"/></li>
+                    <li><textarea name="contact[message]" rows="4" cols="20" class="form" title="text field">text field</textarea></li>
+                    <li>
+                        <input type="submit" name="submit" value="Send" />
+                    </li>
                 </form>
             </ul>
         </li>
         <li class="last">
+            <? if(!empty($contactCollection['link'])):?>
             <div class="contactMap">
-                <img src="<?= IMAGE_PATH . 'mapa.jpg'; ?>" />
+                <?=$contactCollection['link'];?>
             </div>
+            <? endif;?>
         </li>
     </ul>
 </div>
