@@ -51,5 +51,6 @@ class NewsController extends Controller
         //For all
         $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('quotes', $this->db->getQuotes($params));
+        
     }
 }
