@@ -1,3 +1,8 @@
+<div class="banner">
+    <? if (!empty($carouselCollection)): ?>
+        <? include_once VIEW_PATH . 'home' . DS . '_carouselMain.php'; ?>
+    <? endif; ?>
+</div>
 <div class="contentAll colNews">
     <h2><?= $_t['page.news.title']; ?></h2> 
     <? if (!empty($resultCollection)): ?>

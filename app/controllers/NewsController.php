@@ -48,6 +48,9 @@ class NewsController extends Controller
         $this->set('resultCollection', $results);
         $this->set('pagination', array('range'=>$range, 'page'=>$currentPage, 'current'=>$currentPage, 'total'=>$totalPages));
         
+        //For all
+        $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('quotes', $this->db->getQuotes($params));
+        
     }
 }
