@@ -158,3 +158,15 @@ ul.contact > li .contactMap {padding:10px; background-image: url(../images/mask.
 ul.contact input[type=text] {font-size:13px; font-family:"Georgia", sans-serif; color:#999; border:solid 1px #71a6d5; width:285px; padding:3px; margin:0 0 10px;}
 ul.contact textarea {font-size:13px; font-family:"Georgia", sans-serif; color:#999; border:solid 1px #71a6d5; width:285px; max-width:285px; padding:3px; margin:0 0 10px;}
 ul.contact input[type=text]:focus, ul.contact textarea:focus {border-color:#3d85c6; color:#444;}
+
+.banner {padding:10px 0 30px;}
+.banner #slides {position:relative; padding:10px;  background-image: url(../images/mask.jpg);}
+.banner .slides_container {width:940px; height:280px;} 
+.banner .slides_container p {padding:10px 0; color:#FFF;}
+.banner .slides_container .slide {width:940px; height:280px; display:block;}
+.banner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:900px; background-image:url(../images/mask.png);}
+
+.pagination {position:absolute; right:50%; bottom:-28px;}
+.pagination li {float:left;}
+.pagination li a {background:transparent url("../images/pagination.png") scroll no-repeat 0 0; display:block; float:left; height:0; overflow:hidden; padding-top:22px; width:19px;}
+.pagination li.current a {background-position:0 -22px;}
