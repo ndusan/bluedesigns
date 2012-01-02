@@ -6,7 +6,7 @@
 </div>
 <div class="homeContent">
     <div class="homeText">
-        <h1><?=@$homeCollection['tite'];?></h1>
+        <h1><?=@$homeCollection['title'];?></h1>
         <?=@$homeCollection['text'];?>
     </div>
     <? if(!empty($homeCollection['image_name'])):?>
