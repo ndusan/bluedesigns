@@ -1,10 +1,10 @@
 <ul class="mainNav">
-    <li><a class="home" href="<?= DS . $params['lang']; ?>"><?=$_t['nav.home.link'];?></a></li>
-    <li><a class="studio" href="<?= DS . $params['lang'] . DS . 'studio'; ?>"><?=$_t['nav.studio.link'];?></a></li>
-    <li><a class="work" href="<?= DS . $params['lang'] . DS . 'work'; ?>"><?=$_t['nav.work.link'];?></a></li>
-    <li><a class="news" href="<?= DS . $params['lang'] . DS . 'news'; ?>"><?=$_t['nav.news.link'];?></a></li>
-    <li><a class="download" href="<?= DS . $params['lang'] . DS . 'download'; ?>"><?=$_t['nav.download.link'];?></a></li>
-    <li><a class="contact" href="<?= DS . $params['lang'] . DS . 'contact'; ?>"><?=$_t['nav.contact.link'];?></a></li>
+    <li><a class="home <?=('home' == $this->_controller ? 'active':'');?>" href="<?= DS . $params['lang']; ?>"><?=$_t['nav.home.link'];?></a></li>
+    <li><a class="studio <?=('studio' == $this->_controller ? 'active':'');?>" href="<?= DS . $params['lang'] . DS . 'studio'; ?>"><?=$_t['nav.studio.link'];?></a></li>
+    <li><a class="work <?=('work' == $this->_controller ? 'active':'');?>" href="<?= DS . $params['lang'] . DS . 'work'; ?>"><?=$_t['nav.work.link'];?></a></li>
+    <li><a class="news <?=('news' == $this->_controller ? 'active':'');?>" href="<?= DS . $params['lang'] . DS . 'news'; ?>"><?=$_t['nav.news.link'];?></a></li>
+    <li><a class="download <?=('download' == $this->_controller ? 'active':'');?>" href="<?= DS . $params['lang'] . DS . 'download'; ?>"><?=$_t['nav.download.link'];?></a></li>
+    <li><a class="contact <?=('contact' == $this->_controller ? 'active':'');?>" href="<?= DS . $params['lang'] . DS . 'contact'; ?>"><?=$_t['nav.contact.link'];?></a></li>
 </ul>    
 
 <ul class="lang">
