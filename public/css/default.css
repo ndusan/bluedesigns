@@ -88,7 +88,7 @@ ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolu
 .homeContent {position:relative; font-family:"Georgia", sans-serif; padding:20px 0; border-top:dotted 1px #CCC; overflow:hidden;}
 .homeContent p {padding:10px 0;}
 .homeContent h1 {color:#92278f; line-height:50px;}
-.homeContent .homeText {width:480px; padding:0 0 30px;}
+.homeContent .homeText {width:480px; padding:0 0 30px; float:left;}
 .homeContent img {float:right; padding:20px 0;}
 
 
@@ -111,7 +111,7 @@ ul.latestProjects li.last {margin:0;}
 .colContact h2 {color:#966a39;}
 
 #studio {position:relative; padding:20px 0 15px;}
-#studio h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#FFF; line-height:40px; padding:0 10px 20px; background:transparent url(../images/studioBg1.png) scroll repeat-x 0 0;}
+#studio h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#FFF; line-height:40px; padding:0 10px 10px; background:transparent url(../images/studioBg1.png) scroll repeat-x 0 0;}
 #studio span.on {float:right; display:none; background:transparent url(../images/studioOn.png) scroll no-repeat 100% 50%; padding:0 40px 0 0;}
 #studio span.off {float:right; background:transparent url(../images/studioOff.png) scroll no-repeat 100% 50%; padding:0 40px 0 0;}
 #studio h3.ui-state-active  {background:transparent url(../images/studioBg2.png) scroll repeat-x 0 0;}
