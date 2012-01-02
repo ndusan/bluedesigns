@@ -29,6 +29,7 @@ class ContactController extends Controller
         $this->set('contactCollection', $this->db->getContact($params));
         
         //For all
+        $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('quotes', $this->db->getQuotes($params));
     }
     
