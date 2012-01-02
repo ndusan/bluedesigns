@@ -87,7 +87,7 @@ ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolu
 
 .homeContent {position:relative; font-family:"Georgia", sans-serif; padding:20px 0; border-top:dotted 1px #CCC; overflow:hidden;}
 .homeContent p {padding:10px 0;}
-.homeContent h1 {color:#92278f; line-height:50px;}
+.homeContent h1 {color:#92278f; line-height:50px; padding:0 0 20px;}
 .homeContent .homeText {width:480px; padding:0 0 30px; float:left;}
 .homeContent img {float:right; padding:20px 0;}
 
