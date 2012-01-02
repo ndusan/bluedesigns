@@ -1,4 +1,4 @@
-<div class="colWork">
+<div class="contentAll colWork">
     <div class="workSidebar">
         <h2><?= $_t['page.clients.title']; ?></h2> 
         <? if (!empty($workCollection)): ?>
