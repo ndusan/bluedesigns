@@ -114,11 +114,13 @@ ul.latestProjects li.last {margin:0;}
 #studio h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#FFF; line-height:40px; padding:0 10px 20px; background:transparent url(../images/studioBg1.png) scroll repeat-x 0 0;}
 #studio span.on {float:right; display:none; background:transparent url(../images/studioOn.png) scroll no-repeat 100% 50%; padding:0 40px 0 0;}
 #studio span.off {float:right; background:transparent url(../images/studioOff.png) scroll no-repeat 100% 50%; padding:0 40px 0 0;}
-#studio h3.active  {background:transparent url(../images/studioBg2.png) scroll repeat-x 0 0;}
-#studio h3.active span.on {display:block;}
-#studio h3.active span.off {display:none;}
-#studio div {position:relative; margin:0 0 20px; border-bottom:dotted 1px #CCC; padding:0 5px 10px;}
-#studio div p {padding:0; margin-bottom:15px;}
+#studio h3.ui-state-active  {background:transparent url(../images/studioBg2.png) scroll repeat-x 0 0;}
+#studio h3.ui-state-active span.on {display:block;}
+#studio h3.ui-state-active span.off {display:none;}
+#studio div {position:relative; margin:0 0 20px; border-bottom:dotted 1px #CCC; padding:0 5px 10px; overflow:hidden;}
+#studio div span.img {float:right; width:475px; text-align:center;}
+#studio div span.txt {float:left; width:475px;}
+.colStudio p {padding:10px 0;}
 
 ul.downloads {overflow:hidden; padding:20px 0 5px; margin:0 0 10px; border-bottom:dotted 1px #CCC;}
 ul.downloads li {float:left; margin:0 10px 10px 0; padding:10px; position:relative; background-image: url(../images/mask.jpg);}
