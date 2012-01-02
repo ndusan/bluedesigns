@@ -1,3 +1,8 @@
+<div class="banner">
+    <? if (!empty($carouselCollection)): ?>
+        <? include_once VIEW_PATH . 'home' . DS . '_carouselMain.php'; ?>
+    <? endif; ?>
+</div>
 <div class="contentAll colContact">
     <h2><?=$_t['page.contact.title'];?></h2> 
     <ul class="contact">

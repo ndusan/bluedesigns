@@ -2,13 +2,15 @@
     <div class="slides_container">
         <? foreach ($carouselCollection as $cc): ?>
             <div class="slide">
-                <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
+                <? if (!empty($cc['link'])): ?>
+                <a href="http://<?= rtrim($cc['link'], 'http://'); ?>" target="_blank">
+                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
+                </a>
+                <? else:?>
+                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
+                <? endif; ?>
                 <div class="desc">
-                    <? if (!empty($cc['link'])): ?>
-                        <!-- Link -->
-                        <a href="http://<?= rtrim($cc['link'], 'http://'); ?>" target="_blank">link</a>
-                    <? endif; ?>
-                    <p><?= $cc['text']; ?></p>
+                    <?= $cc['text']; ?>
                 </div>
             </div>
         <? endforeach; ?>

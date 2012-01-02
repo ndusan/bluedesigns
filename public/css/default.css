@@ -85,7 +85,7 @@ ul.clientsLogos li {float:left;}
 ul.clientsLogos li a {display:block; overflow:hidden; width:88px; height:90px; margin:20px 0; position:relative;}
 ul.clientsLogos li a:hover img, ul.clientsLogos li a.active img {position:absolute; bottom:0; left:0;}
 
-.homeContent {position:relative; font-family:"Georgia", sans-serif; padding:20px 0; border-top:dotted 1px #CCC;}
+.homeContent {position:relative; font-family:"Georgia", sans-serif; padding:20px 0; border-top:dotted 1px #CCC; overflow:hidden;}
 .homeContent p {padding:10px 0;}
 .homeContent h1 {color:#92278f; line-height:50px;}
 .homeContent .homeText {width:480px; padding:0 0 30px;}
@@ -165,6 +165,13 @@ ul.contact input[type=text]:focus, ul.contact textarea:focus {border-color:#3d85
 .banner .slides_container p {padding:10px 0; color:#FFF;}
 .banner .slides_container .slide {width:940px; height:280px; display:block;}
 .banner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:900px; background-image:url(../images/mask.png);}
+
+.workBanner {padding:10px 0 30px;}
+.workBanner #slides {position:relative; padding:10px;  background-image: url(../images/mask.jpg);}
+.workBanner .slides_container {width:640px; height:280px;} 
+.workBanner .slides_container p {padding:10px 0; color:#FFF;}
+.workBanner .slides_container .slide {width:640px; height:280px; display:block;}
+.workBanner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:900px; background-image:url(../images/mask.png);}
 
 .pagination {position:absolute; right:50%; bottom:-28px;}
 .pagination li {float:left;}
