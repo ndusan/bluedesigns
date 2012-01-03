@@ -12,7 +12,7 @@ class CmsWorkModel extends Model
     public function findAll()
     {
         try{
-            $query = sprintf("SELECT * FROM %s", $this->tableWork);
+            $query = sprintf("SELECT * FROM %s ORDER BY `position` DESC", $this->tableWork);
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
 
@@ -110,11 +110,13 @@ class CmsWorkModel extends Model
     {
         
         try{
-            $query = sprintf("INSERT INTO %s SET `name`=:name, `link`=:link", $this->tableWork);
+            $query = sprintf("INSERT INTO %s SET `name`=:name, `link`=:link, `position`=:position", $this->tableWork);
             $stmt = $this->dbh->prepare($query);
             
+            $position = time();
             $stmt->bindParam(':name', $params['name'], PDO::PARAM_STR);
             $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+            $stmt->bindParam(':position', $position, PDO::PARAM_STR);
             $stmt->execute();
             
             $workId = $this->dbh->lastInsertId();
@@ -224,6 +226,32 @@ class CmsWorkModel extends Model
         $stmt->execute();
         
         return true;
+    }
+    
+    public function position($params)
+    {
+        try{
+            $query = sprintf("UPDATE %s AS `w` SET 
+                                    `w`.`position`=:start WHERE `id`=:endId", $this->tableWork);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':start', $params['start'], PDO::PARAM_INT);
+            $stmt->bindParam(':endId', $params['end_id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            $query = sprintf("UPDATE %s AS `w` SET 
+                                    `w`.`position`=:end WHERE `id`=:startId", $this->tableWork);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':end', $params['end'], PDO::PARAM_INT);
+            $stmt->bindParam(':startId', $params['start_id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
     
 }

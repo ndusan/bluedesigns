@@ -4,7 +4,7 @@
 
 
 <? if (!empty($workCollection)): ?>
-    <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
+    <table cellpadding="0" cellspacing="0" border="0" class="display dataTableSortable"> 
         <thead> 
             <tr> 
                 <th>Project name</th> 
@@ -14,9 +14,13 @@
             </tr> 
         </thead> 
         <tbody> 
+            <? $i=1;?>
             <? foreach ($workCollection as $w): ?>
                 <tr> 
-                    <td><?= $w['name']; ?></td> 
+                    <td>
+                        <input type="hidden" class="jpos-<?=$i++;?>" value="<?=$w['position'];?>" id="t-<?=$w['id'];?>" />
+                        <?= $w['name']; ?>
+                    </td> 
                     <td><?= $w['link']; ?></td> 
                     <td><?= $html->convertDate($w['created'], true); ?></td> 
                     <td align="center">

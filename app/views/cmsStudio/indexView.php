@@ -4,7 +4,7 @@
 
 
 <? if (!empty($studioCollection)): ?>
-    <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
+    <table cellpadding="0" cellspacing="0" border="0" class="display dataTableSortable"> 
         <thead> 
             <tr> 
                 <th>Created</th> 
@@ -12,9 +12,13 @@
           </tr> 
         </thead> 
         <tbody> 
+            <? $i=1;?>
             <? foreach ($studioCollection as $studio): ?>
                 <tr> 
-                    <td><?=$html->convertDate($studio['created'], true);?></td>
+                    <td>
+                        <input type="hidden" class="jpos-<?=$i++;?>" value="<?=$studio['position'];?>" id="t-<?=$studio['id'];?>" />
+                        <?=$html->convertDate($studio['created'], true);?>
+                    </td>
                     <td align="center">
                         <!--Edit-->
                         <a title="Edit" class="cmsEdit" href="/cms/studio/edit/<?= $studio['id']; ?>"></a>
@@ -23,13 +27,13 @@
                     </td> 
           </tr> 
             <? endforeach; ?>
+        </tbody> 
         <tfoot> 
             <tr> 
                 <th>Created</th> 
                 <th>Action</th> 
             </tr> 
         </tfoot> 
-    </tbody> 
     </table> 
 <? else: ?>
     <div class="noResults">
