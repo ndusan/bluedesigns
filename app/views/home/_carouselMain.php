@@ -10,7 +10,7 @@
                     <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
                 <? endif; ?>
                 <div class="desc">
-                    <?= $cc['text']; ?>
+                    <p><?= $cc['text']; ?></p>
                 </div>
             </div>
         <? endforeach; ?>

@@ -1,7 +1,7 @@
 <div class="quotes">
     <? if(!empty($quotes)):?>
     <div class="quoteText">
-        <span class="jQuoteText"><?=$quotes[0]['text'];?></span>
+        <p class="jQuoteText"><?=$quotes[0]['text'];?></p>
         <h2 class="jQuoteClient"><?=$quotes[0]['client'];?></h2>
         <h4 class="jQuoteCompany"><?=$quotes[0]['company'];?></h4>
     </div>

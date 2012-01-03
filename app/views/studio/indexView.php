@@ -20,7 +20,7 @@
                         <span class="img"><img src="<?= PUBLIC_UPLOAD_PATH . 'studio' . DS . $s['image_name']; ?>" /></span>   
                     <? endif; ?>
                     <span class="txt">
-                        <?= $s['text']; ?>
+                        <p><?= $s['text']; ?></p>
                     </span>
                 </div>
             <? endforeach; ?>

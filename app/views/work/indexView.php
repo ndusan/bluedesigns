@@ -22,7 +22,7 @@
             </div>
         </div>
         <h3><?= $cWork['name']; ?></h3>
-        <?= $cWork['description']; ?>
+        <p><?= $cWork['description']; ?></p>
         <a href="<?= $cWork['link']; ?>" table="_blank"><?= $cWork['link']; ?></a>
     </div>
 </div>
