@@ -8,7 +8,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td><span class="jtooltip" title="Name of project">Project name:</span></td>
+                        <td><span class="jtooltip" title="Name of project">Client name:</span></td>
                         <td>
                             <input type="text" class="jr" name="work[name]" value="<?= @$work['name']; ?>" />
                         </td>
@@ -27,7 +27,7 @@
                 <thead>
                     <tr>
                         <th>
-                            Attach files (Pdf, Doc)
+                            Attach files (Pdf, Doc, Jpg)
                         </th>
                         <th>Content</th>
                         <th>Action</th>

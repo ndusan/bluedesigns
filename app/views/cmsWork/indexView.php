@@ -1,5 +1,5 @@
 <ul class="addTop">
-    <li><a class="cmsAdd" href="/cms/work/add" >Add new project</a></li>
+    <li><a class="cmsAdd" href="/cms/work/add" >Add new client</a></li>
 </ul>
 
 
@@ -7,7 +7,7 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display dataTableSortable"> 
         <thead> 
             <tr> 
-                <th>Project name</th> 
+                <th>Client name</th> 
                 <th>Link</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th> 
@@ -33,7 +33,7 @@
             <? endforeach; ?>
         <tfoot> 
             <tr> 
-                <th>Project name</th> 
+                <th>Client name</th> 
                 <th>Link</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th> 
