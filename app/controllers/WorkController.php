@@ -12,6 +12,7 @@ class WorkController extends Controller
     {
         $this->set('workCollection', $this->db->getWork($params));
         $this->set('cWork', $this->db->getCurrentWork($params));
+        $this->set('isActive', $this->db->isActiveLang('en'));
         
         
         //For all

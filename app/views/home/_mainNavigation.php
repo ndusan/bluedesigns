@@ -9,5 +9,7 @@
 
 <ul class="lang">
     <li class="first"><a <?= (isset($params['lang']) && $params['lang'] == 'sr' ? 'class="active"' : ''); ?> href="<?= DS . 'sr' . DS . implode('/', $params['breadcrumb']); ?>">Srpski</a></li>
+    <? if(!empty($isActive)):?>
     <li><a <?= (isset($params['lang']) && $params['lang'] == 'en' ? 'class="active"' : ''); ?> href="<?= DS . 'en' . DS . implode('/', $params['breadcrumb']); ?>">English</a></li>
+    <? endif; ?>
 </ul>

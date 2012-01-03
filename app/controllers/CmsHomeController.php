@@ -51,7 +51,18 @@ class CmsHomeController extends Controller
         if(!empty($params['cache']) && $params['cache'] == 'clean'){
             //Clean cache
             Cache::deleteDictionary();
+        }elseif(!empty($params['submit'])){
+            //Data submited
+            
+            if($this->db->setLanguage('en', $params['settings']['lang'])){
+                //If image uploaded add it
+                parent::redirect ('cms'.DS.'settings', 'success', '#fragment-2');
+            }else{
+                parent::redirect ('cms'.DS.'settings', 'error', '#fragment-2');
+            }
         }
+        
+        $this->set('en', $this->db->isActive('en'));
     }
     
 }

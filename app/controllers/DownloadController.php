@@ -13,6 +13,7 @@ class DownloadController extends Controller
         //For all
         $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('quotes', $this->db->getQuotes($params));
+        $this->set('isActive', $this->db->isActiveLang('en'));
         
         $this->set('wallpaperCollection', $this->db->getWallpapers($params));
     }
