@@ -10,7 +10,7 @@
                     <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="quotes[text][sr]" class="jr"><?= @$quotes['lang']['sr']['text']; ?></textarea>
+                            <textarea name="quotes[text][sr]" class="jr mceNoEditor"><?= @$quotes['lang']['sr']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -22,7 +22,7 @@
                     <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="quotes[text][en]"><?= @$quotes['lang']['en']['text']; ?></textarea>
+                            <textarea name="quotes[text][en]" class="mceNoEditor"><?= @$quotes['lang']['en']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
