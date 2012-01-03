@@ -26,5 +26,5 @@
             <? endforeach; ?>
         </div>
     <? endif; ?>
-    <span>fecebook plugin</span>
+    <span><?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?></span>
 </div>

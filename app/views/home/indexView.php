@@ -9,8 +9,10 @@
         <h1><?=@$homeCollection['title'];?></h1>
         <?=@$homeCollection['text'];?>
     </div>
-    <? if(!empty($homeCollection['image_name'])):?>
+    <? if($homeCollection['set'] == 'image' && !empty($homeCollection['image_name'])):?>
     <img src="<?= PUBLIC_UPLOAD_PATH . 'static' . DS . $homeCollection['image_name']; ?>" />
+    <? elseif($homeCollection['set'] == 'link' && !empty($homeCollection['link'])):?>
+    <?=$homeCollection['link'];?>
     <? endif;?>
 </div>
 <div class="contentAll colHome">
@@ -21,7 +23,7 @@
         <li>
             <a href="<?='http://'.rtrim('http://', $lp['link']);?>">
                 <? if(!empty($lp['image_name'])):?>
-                <img src="<?= PUBLIC_UPLOAD_PATH .'work'.DS. $lp['image_name']; ?>" />
+                <img src="<?= PUBLIC_UPLOAD_PATH .'work'.DS. 'thumb-'.$lp['image_name']; ?>" />
                 <? endif;?>
                 <span><?=$lp['name'];?></span>
             </a>
@@ -29,7 +31,7 @@
         <? endforeach; ?>
     </ul>
     <? endif;?>
-    <span>fecebook plugin</span>
+    <span><?=$html->fb($_SERVER['DOCUMENT_ROOT']);?></span>
 </div>
 
 

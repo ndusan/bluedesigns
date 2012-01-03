@@ -49,12 +49,21 @@
                     <tr>
                         <td><span class="jtooltip" title="Image on home page">Image:</span></td>
                         <td>
+                            <input type="radio" name="home[set]" value="image" <?=(empty($home['set']) || @$home['set'] == 'image' ? 'checked="checked"':'');?>/>
                             <? if (isset($home['id']) && !empty($home['image_name'])): ?>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'static' . DS . $home['image_name']; ?>" target="_blank"><?= $home['image_name']; ?></a>
                                 [<a href="/cms/delete/image/<?= $home['id']; ?>" target="_blank" class="jw">Delete</a>]
                             <? else:?>
-                                <input type="file" name="image" class="jr" value=""/>
+                                <input type="file" name="image" value=""/>
                             <? endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="jtooltip" title="Youtube on home page">Youtube:</span></td>
+                        <td>
+                            <input type="radio" name="home[set]" value="link" <?=(@$home['set'] == 'link' ? 'checked="checked"':'');?>/>
+                            <textarea class="mceNoEditor" name="home[link]"><?= @$home['link'];?></textarea>
+                            
                         </td>
                     </tr>
                     <tr>

@@ -36,6 +36,7 @@
                         <? foreach ($fileCollection as $file): ?>
                             <tr id="jLine-<?= $file['id']; ?>">
                                 <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a></td>
+                                <td><textarea class="mceNoEditor" name="file_textarea[]"></textarea>
                                 <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'work' . DS . 'delete' .DS.$file['work_id'] . DS . 'image' . DS . $file['id']; ?>" title="Remove file"class="jRemoveBrowse cmsDelete"></a></td>
                             </tr>
                         <? endforeach; ?>
