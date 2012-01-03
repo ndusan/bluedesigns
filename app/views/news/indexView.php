@@ -27,37 +27,38 @@
                             <?= date('M', mktime(0, 0, 0, $array[1] + 1, 0, 0)); ?>
                         </div>
                     </div>
-                    <span><?=$html->fb($_SERVER['DOCUMENT_ROOT']);?>Be the first of your friends to like this</span>
+                    <span><?= $html->fb($_SERVER['DOCUMENT_ROOT']); ?>Be the first of your friends to like this</span>
                 </li>
             <? endforeach; ?>
         </ul>
 
         <!-- pagination START -->
-
-        <? if (!empty($pagination['current']) && $pagination['current'] > 1): ?>
-            <!-- First -->
-            <a href="<?= DS . $params['lang'] . DS . 'news?page=1'; ?>"><<</a>
-            <!-- Previous -->
-            <a href="<?= DS . $params['lang'] . DS . 'news?page=' . ($pagination['current'] - 1); ?>"><</a>
-        <? endif; ?>
-
-        <? for ($x = ($pagination['current'] - $pagination['range']); $x < (($pagination['current'] + $pagination['range']) + 1); $x++): ?>
-            <? if (($x > 0) && ($x <= $pagination['total'])): ?>
-                <? if ($x == $pagination['current']): ?>
-                    <b><?= $x; ?></b>
-                <? else: ?>
-                    <a href="<?= DS . $params['lang'] . DS . 'news?page=' . $pagination['current']; ?>"><?= $x; ?></a>
-                <? endif; ?>
+        <div class="pagin">
+            <? if (!empty($pagination['current']) && $pagination['current'] > 1): ?>
+                <!-- First -->
+                <a class="first" href="<?= DS . $params['lang'] . DS . 'news?page=1'; ?>">First</a>
+                <!-- Previous -->
+                <a href="<?= DS . $params['lang'] . DS . 'news?page=' . ($pagination['current'] - 1); ?>"><</a>
             <? endif; ?>
-        <? endfor; ?>
 
-        <? if (!empty($pagination['total']) && !empty($pagination['current']) && $pagination['current'] != $pagination['total']): ?>
-            <!-- Next -->
-            <a href="<?= DS . $params['lang'] . DS . 'news?page=' . ($pagination['current'] + 1); ?>">></a>
-            <!-- Last -->
-            <a href="<?= DS . $params['lang'] . DS . 'news?page=' . $pagination['total']; ?>">>></a>
+            <? for ($x = ($pagination['current'] - $pagination['range']); $x < (($pagination['current'] + $pagination['range']) + 1); $x++): ?>
+                <? if (($x > 0) && ($x <= $pagination['total'])): ?>
+                    <? if ($x == $pagination['current']): ?>
+                        <b><?= $x; ?></b>
+                    <? else: ?>
+                        <a href="<?= DS . $params['lang'] . DS . 'news?page=' . $pagination['current']; ?>"><?= $x; ?></a>
+                    <? endif; ?>
+                <? endif; ?>
+            <? endfor; ?>
+
+            <? if (!empty($pagination['total']) && !empty($pagination['current']) && $pagination['current'] != $pagination['total']): ?>
+                <!-- Next -->
+                <a href="<?= DS . $params['lang'] . DS . 'news?page=' . ($pagination['current'] + 1); ?>">></a>
+                <!-- Last -->
+                <a class="last" href="<?= DS . $params['lang'] . DS . 'news?page=' . $pagination['total']; ?>">Last</a>
+            <? endif; ?>
+
+            <!-- pagination END -->
         <? endif; ?>
-
-        <!-- pagination END -->
-    <? endif; ?>
+    </div>
 </div>
