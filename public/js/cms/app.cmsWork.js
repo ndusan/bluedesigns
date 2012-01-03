@@ -22,7 +22,7 @@ var App = App || {};
           App.CmsHome.addBrowse();
           App.CmsHome.removeBrowse();
           
-          App.Work.sortableTable();
+          App.CmsWork.sortableTable();
         },
         index: function() {
             
@@ -68,6 +68,7 @@ var App = App || {};
         },
         sortableTable: function(){
             //Set datatable
+            
             $('.dataTable').dataTable();
             $('.dataTableSortable').dataTable({
                 "bSort": false
