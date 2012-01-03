@@ -373,7 +373,7 @@ class Controller {
         $messageCollection .= "--{$mime_boundary}--";
         $returnpath = "-f" . $to;
 
-        if (mail($to, $subject, $messageCollection, $headers, $returnpath)) {
+        if (@mail($to, $subject, $messageCollection, $headers, $returnpath)) {
 
             return true;
         } else {
