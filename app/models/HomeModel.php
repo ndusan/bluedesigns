@@ -41,7 +41,7 @@ class HomeModel extends Model
             $query = sprintf("SELECT `w`.`id`, `w`.`name`, `w`.`link` FROM %s AS `w` 
                                 LEFT JOIN %s AS `wl` ON `wl`.`work_id`=`w`.`id`
                                 LEFT JOIN %s AS `l` ON `l`.`id`=`wl`.`language_id`
-                                WHERE `l`.`iso_code`=:isoCode ORDER BY `w`.`id` DESC LIMIT 0, %s", 
+                                WHERE `l`.`iso_code`=:isoCode ORDER BY `w`.`position` DESC LIMIT 0, %s", 
                                 $this->tableWork, $this->tableWorkLanguage, $this->tableLanguage, $numOfProjects);
             $stmt = $this->dbh->prepare($query);
             

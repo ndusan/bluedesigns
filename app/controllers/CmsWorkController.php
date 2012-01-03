@@ -5,6 +5,20 @@ class CmsWorkController extends Controller
     
     public function indexAction($params)
     {
+        
+        if($this->isAjax()){
+            
+            $this->setRenderHTML(0);
+            
+            if($this->db->position($params)){
+
+                echo json_encode(array('response'=>true));
+            }else{
+
+                echo json_encode(array('response'=>false));
+            }
+        }
+        
         $this->set('workCollection', $this->db->findAll());
     }
     

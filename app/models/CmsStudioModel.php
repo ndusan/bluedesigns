@@ -10,7 +10,7 @@ class CmsStudioModel extends Model
     public function findAll()
     {
         try{
-            $query = sprintf("SELECT * FROM %s", $this->tableStudio);
+            $query = sprintf("SELECT * FROM %s ORDER BY `position` DESC", $this->tableStudio);
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
 
@@ -102,9 +102,11 @@ class CmsStudioModel extends Model
     {
         
         try{
-            $query = sprintf("INSERT INTO %s SET `created`=CURRENT_TIMESTAMP", $this->tableStudio);
+            $query = sprintf("INSERT INTO %s SET `created`=CURRENT_TIMESTAMP, `position`=:position", $this->tableStudio);
             $stmt = $this->dbh->prepare($query);
-            
+
+            $position = time();
+            $stmt->bindParam(':position', $position, PDO::PARAM_STR);
             $stmt->execute();
             
             $studioId = $this->dbh->lastInsertId();
@@ -197,5 +199,32 @@ class CmsStudioModel extends Model
             
             return false;
         }
-    } 
+    }
+    
+    
+    public function position($params)
+    {
+        try{
+            $query = sprintf("UPDATE %s AS `s` SET 
+                                    `s`.`position`=:start WHERE `id`=:endId", $this->tableStudio);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':start', $params['start'], PDO::PARAM_INT);
+            $stmt->bindParam(':endId', $params['end_id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            $query = sprintf("UPDATE %s AS `s` SET 
+                                    `s`.`position`=:end WHERE `id`=:startId", $this->tableStudio);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':end', $params['end'], PDO::PARAM_INT);
+            $stmt->bindParam(':startId', $params['start_id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
 }
