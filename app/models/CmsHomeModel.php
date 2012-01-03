@@ -42,6 +42,8 @@ class CmsHomeModel extends Model
                         //Add id and image_name
                         $output['id'] = $res['id'];
                         $output['image_name'] = $res['image_name'];
+                        $output['link'] = $res['link'];
+                        $output['set'] = $res['set'];
                     }
                 }
                 
@@ -69,6 +71,8 @@ class CmsHomeModel extends Model
             
             if(empty($response)) return false;
             
+            $staticId = 0;
+            
             foreach($response as $r){
                 
                 //Check if exists
@@ -94,7 +98,8 @@ class CmsHomeModel extends Model
                     $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
                     $stmt->bindParam(':staticId', $result['id'], PDO::PARAM_INT);
                     $stmt->execute();
-                    
+
+                    $staticId = $result['id'];
                 }else{
                     //INSERT
                     
@@ -131,9 +136,17 @@ class CmsHomeModel extends Model
                     $stmt->execute();
                 }
                 
+                $query = sprintf("UPDATE %s SET `link`=:link, `set`=:set WHERE `id`=:id", $this->tableStatic);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+                $stmt->bindParam(':set', $params['set'], PDO::PARAM_STR);
+                $stmt->bindParam(':id', $staticId, PDO::PARAM_INT);
+                $stmt->execute();
+                
             }
             
-            return true;
+            return $staticId;
         }catch(Exception $e){
             
             return false;

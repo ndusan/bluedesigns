@@ -21,7 +21,7 @@ class DownloadModel extends Model
             
             if(!empty($results)){
                 foreach($results as $r){
-                    $query = sprintf("SELECT * FROM %s ORDER BY `wallpaper_id`=:wallpaperId", $this->tableWallpaperImages);
+                    $query = sprintf("SELECT * FROM %s WHERE `wallpaper_id`=:wallpaperId", $this->tableWallpaperImages);
                     $stmt = $this->dbh->prepare($query);
                     
                     $stmt->bindParam(':wallpaperId', $r['id'], PDO::PARAM_INT);
