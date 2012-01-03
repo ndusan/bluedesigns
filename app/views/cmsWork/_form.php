@@ -51,7 +51,7 @@
                 <thead>
                     <tr>
                         <th>
-                            Attach files (Pdf, Doc, Jpg)
+                            Image names
                         </th>
                         <th>Content</th>
                         <th>Action</th>
