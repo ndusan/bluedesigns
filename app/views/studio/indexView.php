@@ -26,5 +26,5 @@
             <? endforeach; ?>
         </div>
     <? endif; ?>
-    <span><?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?></span>
+    <span><?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?>Be the first of your friends to like this</span>
 </div>

@@ -31,7 +31,7 @@
         <? endforeach; ?>
     </ul>
     <? endif;?>
-    <span><?=$html->fb($_SERVER['DOCUMENT_ROOT']);?></span>
+    <span><?=$html->fb($_SERVER['DOCUMENT_ROOT']);?>Be the first of your friends to like this</span>
 </div>
 
 

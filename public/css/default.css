@@ -133,6 +133,8 @@ ul.downloads li.last {margin:0;}
 .workContent {width:660px; float:right; padding:0 0 100px;}
 .workContent h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#f39200; font-size:24px;}
 .workContent p {padding:5px 0; font-family:"Georgia", sans-serif;}
+.workContent h3 a {font-size:13px; background-color:#f39200; padding:0 15px; line-height:29px; display:block; color:#FFF; border-radius:5px;}
+.workContent a:hover {background-color:#f6ad3f;}
 
 ul.clientsList {padding:20px 0; overflow:hidden;}
 ul.clientsList li {padding:0 0 5px;}
@@ -149,7 +151,7 @@ ul.news li p {padding:5px 0; font-family:"Georgia", sans-serif;}
 ul.news li .newsDate {line-height:15px; font-family:"Georgia", sans-serif; color:#FFF; position:absolute; top:10px; left:0; text-align:center; width:45px; padding:5px 5px 5px 0; background:transparent url(../images/news_bg.png) scroll no-repeat 0 50%;}
 ul.news li .newsDate span {display:block; font-size:22px;}
 
-ul.contact {padding:20px 0; overflow:hidden; border-bottom:dotted 1px #CCC;}
+ul.contact {padding:20px 0; margin:0 0 10px; overflow:hidden; border-bottom:dotted 1px #CCC;}
 ul.contact > li {float:left; position:relative; margin:0 10px 0 0; width:295px; font-family:"Georgia", sans-serif;}
 ul.contact > li.last {margin:0; width:auto;}
 ul.contact > li p {padding:5px 0;}

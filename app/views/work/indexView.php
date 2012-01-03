@@ -21,8 +21,8 @@
                 </div>
             </div>
         </div>
-        <h3><?= $cWork['name']; ?></h3>
+        <h3><span class="fr"><a href="<?= $cWork['link']; ?>" target="_blank">Visit web site</a></span><?= $cWork['name']; ?></h3>
         <p><?= $cWork['description']; ?></p>
-        <a href="<?= $cWork['link']; ?>" table="_blank"><?= $cWork['link']; ?></a>
+        <span><?=$html->fb($_SERVER['DOCUMENT_ROOT']);?>Be the first of your friends to like this</span>
     </div>
 </div>
