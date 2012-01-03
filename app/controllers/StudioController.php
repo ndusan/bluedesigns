@@ -14,6 +14,7 @@ class StudioController extends Controller
         //For all
         $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('quotes', $this->db->getQuotes($params));
+        $this->set('isActive', $this->db->isActiveLang('en'));
         
         $this->set('studioCollection', $this->db->getStudio($params));
         $this->set('studio', $this->db->getStudioText($params));
