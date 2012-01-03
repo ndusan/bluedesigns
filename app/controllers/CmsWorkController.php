@@ -42,7 +42,7 @@ class CmsWorkController extends Controller
                                            'error'=>$params['file']['error'][$k]);
                             
                             $newImageName = time()+$i++.'-'.$params['file']['name'][$k];
-                            $this->db->addFile($id, $newImageName);
+                            $this->db->addFile($id, $newImageName, $params['text'][$k]);
                             $this->uploadImage($newImageName, $image, 'work');
 
                             //Create thumb
@@ -77,7 +77,7 @@ class CmsWorkController extends Controller
                             
                             $newImageName = time()+$i++.'-'.$params['file']['name'][$k];
                             
-                            $this->db->addFile($params['id'], $newImageName);
+                            $this->db->addFile($params['id'], $newImageName, $params['text'][$k]);
                             $this->uploadImage($newImageName, $image, 'work');
 
                             //Create thumb

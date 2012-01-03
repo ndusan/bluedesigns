@@ -12,7 +12,7 @@ var App = App || {};
                 
                 var html = '<tr>\n\
                                 <td><input type="file" name="file[]" value=""/></td>\n\n\
-                                <td><textarea class="mceNoEditor" name="file_textarea[]"></textarea></td>\n\n\
+                                <td><textarea class="mceNoEditor" name="text[]"></textarea></td>\n\n\
                                 <td><a href="#" class="jRemoveBrowse cmsDelete" title="Remove file"></a></td>\n\
                             </tr>';
                 

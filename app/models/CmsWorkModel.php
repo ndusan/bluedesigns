@@ -149,15 +149,16 @@ class CmsWorkModel extends Model
     }
     
     
-    public function addFile($id, $imageName)
+    public function addFile($id, $imageName, $text=null)
     {
         try{
             //Insert into files table
-            $query = sprintf("INSERT INTO %s SET `image_name`=:imageName, `work_id`=:workId", $this->tableWorkImages);
+            $query = sprintf("INSERT INTO %s SET `image_name`=:imageName, `work_id`=:workId, `text`=:text", $this->tableWorkImages);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
             $stmt->bindParam(':workId', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':text', $text, PDO::PARAM_STR);
             $stmt->execute();
         }catch(Exception $e){
             

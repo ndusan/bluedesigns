@@ -47,10 +47,11 @@
                     <tr>
                         <td><span class="jtooltip" title="Maximum image width 530px">Image:</span></td>
                         <td>
-                            <input type="file" name="image" value=""/>
                             <? if (isset($studio['id']) && !empty($studio['image_name'])): ?>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'studio' . DS . $studio['image_name']; ?>" target="_blank"><?= $studio['image_name']; ?></a>
                                 [<a href="/cms/studio/delete/image/<?= $studio['id']; ?>" class="jw">Delete</a>]
+                            <? else: ?>
+                                <input type="file" name="image" value="" class="jr"/>
                             <? endif; ?>
                         </td>
                     </tr>

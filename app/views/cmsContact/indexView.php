@@ -37,7 +37,7 @@
                     <tr>
                         <td>Link</td>
                         <td>
-                            <input type="text" name="contact[link]" value="<?= @$contact['link'];?>" />
+                            <textarea class="mceNoEditor" name="contact[link]"><?= @$contact['link'];?></textarea>
                         </td>
                     </tr>
                     <tr>

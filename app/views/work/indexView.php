@@ -16,6 +16,9 @@
                     <? foreach ($cWork['other'] as $cc): ?>
                         <div class="slide">
                             <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $cc['image_name']; ?>" />
+                            <div class="desc">
+                                <p><?= $cc['text']; ?></p>
+                            </div>
                         </div>
                     <? endforeach; ?>
                 </div>

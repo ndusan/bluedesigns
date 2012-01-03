@@ -23,20 +23,24 @@
             </table>
         </div>
         <div class="addContent">
-            <table cellpadding="0" cellspacing="0" width="710" id="jListBrowse">
+            <table cellpadding="0" cellspacing="0" width="710" id="jListBrowse" class="display dataTableSortable">
                 <thead>
                     <tr>
-                        <th colspan="2">
+                        <th>
                             Attach files (Pdf, Doc)
                         </th>
+                        <th>Content</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <? if (!empty($fileCollection)): ?>
                         <? foreach ($fileCollection as $file): ?>
                             <tr id="jLine-<?= $file['id']; ?>">
-                                <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a></td>
-                                <td><textarea class="mceNoEditor" name="file_textarea[]"></textarea>
+                                <td>
+                                    <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a>
+                                </td>
+                                <td><textarea class="mceNoEditor" disabled="disabled"><?=$file['text'];?></textarea></td>
                                 <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'work' . DS . 'delete' .DS.$file['work_id'] . DS . 'image' . DS . $file['id']; ?>" title="Remove file"class="jRemoveBrowse cmsDelete"></a></td>
                             </tr>
                         <? endforeach; ?>

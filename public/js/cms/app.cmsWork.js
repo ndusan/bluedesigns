@@ -11,6 +11,8 @@ var App = App || {};
           
           App.CmsHome.addBrowse();
           App.CmsHome.removeBrowse();
+          
+          App.Work.sortableTable();
         },
         edit: function() {
           App.Common.tabs();
@@ -19,6 +21,8 @@ var App = App || {};
           
           App.CmsHome.addBrowse();
           App.CmsHome.removeBrowse();
+          
+          App.Work.sortableTable();
         },
         index: function() {
             
@@ -41,7 +45,7 @@ var App = App || {};
                     eId = eId.substr(2, eId.length);
                     
                     $.ajax({
-                          url: '/cms/work',
+                          url: '/cms/work/position',
                           type: 'GET',
                           dataType: 'json',
                           data: {start : $('.jpos-'+startPosition).val(), 
@@ -52,7 +56,7 @@ var App = App || {};
                           success: function(data){
                             if(data.response){
                                 var d = new Date();
-                                window.location.href = '/cms/work?cache='+d.getTime(); 
+                                window.location.href = '/cms/work/edit/7?cache='+d.getTime(); 
                             }
                           }
                           
@@ -61,6 +65,14 @@ var App = App || {};
             });
             
             App.Common.thead();
+        },
+        sortableTable: function(){
+            //Set datatable
+            $('.dataTable').dataTable();
+            $('.dataTableSortable').dataTable({
+                "bSort": false
+            });
         }
+        
     };
 })(this.jQuery);
