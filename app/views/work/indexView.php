@@ -26,6 +26,6 @@
         </div>
         <h3><span class="fr"><a href="<?= $cWork['link']; ?>" target="_blank">Visit web site</a></span><?= $cWork['name']; ?></h3>
         <p><?= $cWork['description']; ?></p>
-        <span><?=$html->fb($_SERVER['DOCUMENT_ROOT']);?>Be the first of your friends to like this</span>
+        <span><?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?></span>
     </div>
 </div>
