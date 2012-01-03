@@ -4,11 +4,12 @@
     <? endif; ?>
 </div>
 <div class="contentAll colStudio">
-    <h2><?= $_t['page.studio.subtitle']; ?></h2>
     
-    <?=$studio['title'];?>
+    
+    <h2><?=$studio['title'];?></h2>
     
     <?=$studio['text'];?>
+    <h2><?= $_t['page.studio.subtitle']; ?></h2>
     
     <? if (!empty($studioCollection)): ?>
         <div id="studio">
