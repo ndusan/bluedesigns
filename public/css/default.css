@@ -188,3 +188,6 @@ ul.contact input[type=submit]:hover {background-color:#2dafe8;}
 .pagin .first, .pagin .last {background-color:transparent; color:#b3a400;}
 
 .warning {border-color:#af0a10 !important; background-color:#ff9c9f; color:#FFF !important;}
+
+.msg {padding:10px 0; text-align:center; color:#FFF; margin:0 0 10px; }
+.success {background-color:#66b122;}
