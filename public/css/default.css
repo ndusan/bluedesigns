@@ -134,7 +134,7 @@ ul.downloads li.last {margin:0;}
 .workContent h3 {font-family:"Georgia", sans-serif; cursor:pointer; color:#f39200; font-size:24px;}
 .workContent p {padding:5px 0; font-family:"Georgia", sans-serif;}
 .workContent h3 a {font-size:13px; background-color:#f39200; padding:0 15px; line-height:29px; display:block; color:#FFF; border-radius:5px;}
-.workContent a:hover {background-color:#f6ad3f;}
+.workContent h3 a:hover {background-color:#f6ad3f;}
 
 ul.clientsList {padding:20px 0; overflow:hidden;}
 ul.clientsList li {padding:0 0 5px;}
@@ -166,7 +166,7 @@ ul.contact input[type=submit]:hover {background-color:#2dafe8;}
 .banner {padding:10px 0 30px;}
 .banner #slides {position:relative; padding:10px;  background-image: url(../images/mask.jpg);}
 .banner .slides_container {width:940px; height:280px;} 
-.banner .slides_container p {padding:10px 0; color:#FFF;}
+.banner .slides_container p {font-family:"Georgia", sans-serif; padding:10px 0; color:#FFF;}
 .banner .slides_container .slide {width:940px; height:280px; display:block;}
 .banner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:900px; background-image:url(../images/mask.png);}
 
@@ -175,7 +175,7 @@ ul.contact input[type=submit]:hover {background-color:#2dafe8;}
 .workBanner .slides_container {width:640px; height:430px;} 
 .workBanner .slides_container p {padding:10px 0; color:#FFF;}
 .workBanner .slides_container .slide {width:640px; height:430px; display:block;}
-.workBanner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:900px; background-image:url(../images/mask.png);}
+.workBanner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:600px; background-image:url(../images/mask.png);}
 
 .pagination {position:absolute; right:50%; bottom:-28px;}
 .pagination li {float:left;}

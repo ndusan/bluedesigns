@@ -46,7 +46,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="addContent">
+        <div class="addContent2">
             <table cellpadding="0" cellspacing="0" width="710" id="jListBrowse" class="display dataTableSortable">
                 <thead>
                     <tr>
