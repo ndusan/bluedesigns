@@ -33,7 +33,6 @@ class CmsNewsModel extends Model
             
             $object = $stmt->fetch();
             
-            
             //Get languages translations
             $language = array();
             $query = sprintf("SELECT `l`.`iso_code`, `nl`.* FROM %s AS `l` 
@@ -51,9 +50,9 @@ class CmsNewsModel extends Model
                     $language[$v['iso_code']]['title'] = $v['title'];
                     $language[$v['iso_code']]['heading'] = $v['heading'];
                     $language[$v['iso_code']]['text'] = $v['text'];
+                    
                 }
             }
-            
             $object['lang'] = $language;
             
             return $object;
@@ -91,6 +90,15 @@ class CmsNewsModel extends Model
                 $stmt->bindParam(':languageId', $response['id'], PDO::PARAM_INT);
                 $stmt->execute();
             }
+            
+            $query = sprintf("UPDATE %s SET `link`=:link, `set`=:set, `created`=:created WHERE `id`=:id", $this->tableNews);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+            $stmt->bindParam(':set', $params['set'], PDO::PARAM_STR);
+            $stmt->bindParam(':created', $params['created'], PDO::PARAM_STR);
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
             
             return true;
         }catch(Exception $e){
@@ -133,6 +141,15 @@ class CmsNewsModel extends Model
                 $stmt->bindParam(':text', $params['content'][$k], PDO::PARAM_STR);
                 $stmt->execute();
             }
+            
+            $query = sprintf("UPDATE %s SET `link`=:link, `set`=:set, `created`=:created WHERE `id`=:id", $this->tableNews);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+            $stmt->bindParam(':set', $params['set'], PDO::PARAM_STR);
+            $stmt->bindParam(':created', $params['created'], PDO::PARAM_STR);
+            $stmt->bindParam(':id', $newsId, PDO::PARAM_INT);
+            $stmt->execute();
             
             return $newsId;
         }catch(Exception $e){

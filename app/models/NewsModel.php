@@ -27,7 +27,7 @@ class NewsModel extends Model
     {
         
         try{
-            $query = sprintf("SELECT `n`.`image_name`, `nl`.* FROM %s AS `n`
+            $query = sprintf("SELECT `n`.`image_name`, `n`.`link`, `n`.`set`, `nl`.* FROM %s AS `n`
                                 INNER JOIN %s AS `nl` ON `nl`.`news_id`=`n`.`id`
                                 INNER JOIN %s AS `l` ON `l`.`id`=`nl`.`language_id`
                                 WHERE `l`.`iso_code`=:isoCode

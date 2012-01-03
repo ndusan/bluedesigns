@@ -10,10 +10,12 @@
             <? $i = 1; ?>
             <? foreach ($resultCollection as $r): ?>
                 <li <?= ($i++ > 2 ? 'class="last"' : ''); ?>>
-                    <? if ($r['image_name']): ?>
+                    <? if($r['set'] == 'image' && !empty($r['image_name'])):?>
                         <div class="newsImg">
                             <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . $r['image_name']; ?>" />
                         </div>
+                    <? elseif($r['set'] == 'link' && !empty($r['link'])):?>
+                        <?=$r['link'];?>
                     <? endif; ?>
                     <div class="newsText">
                         <h4><?= $r['title']; ?></h4>
