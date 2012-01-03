@@ -16,6 +16,8 @@ class HomeController extends Controller
         $this->set('carouselCollection', $this->db->getCarousel($params));
         $this->set('homeCollection', $this->db->getHome($params));
         
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        
         $this->set('quotes', $this->db->getQuotes($params));
     }
     

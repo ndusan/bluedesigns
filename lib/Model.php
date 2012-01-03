@@ -134,6 +134,26 @@ class Model
     }
     
     
+    public function isActiveLang($isoCode)
+    {
+        
+        try{
+            $query = sprintf("SELECT `active` FROM %s WHERE `iso_code`=:isoCode", $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':isoCode', $isoCode, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $response = $stmt->fetch();
+            
+            return $response['active'] ? true : false;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
     
     
 }
