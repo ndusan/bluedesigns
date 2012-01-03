@@ -16,5 +16,6 @@ class StudioController extends Controller
         $this->set('quotes', $this->db->getQuotes($params));
         
         $this->set('studioCollection', $this->db->getStudio($params));
+        $this->set('studio', $this->db->getStudioText($params));
     }
 }

@@ -54,6 +54,11 @@ var App = App || {};
            App.Common.tabs();
            App.Common.jtooltip();
            App.Common.mce();
+       },
+       about: function(){
+           App.Common.tabs();
+           App.Common.jtooltip();
+           App.Common.mce();
        }
     };
 })(this.jQuery);

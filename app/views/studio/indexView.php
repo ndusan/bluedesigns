@@ -5,6 +5,11 @@
 </div>
 <div class="contentAll colStudio">
     <h2><?= $_t['page.studio.subtitle']; ?></h2>
+    
+    <?=$studio['title'];?>
+    
+    <?=$studio['text'];?>
+    
     <? if (!empty($studioCollection)): ?>
         <div id="studio">
             <? foreach ($studioCollection as $s): ?>

@@ -228,6 +228,11 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/studio\/about\/?$/', 
+            'controller' => 'cmsStudio', 
+            'action'     => 'about', 
+            'layout'     => 'cms'
+    ),
     array(  'url'        => '/^cms\/studio\/add\/?$/', 
             'controller' => 'cmsStudio', 
             'action'     => 'add', 

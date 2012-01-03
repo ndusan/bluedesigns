@@ -117,4 +117,22 @@ class CmsStudioController extends Controller
         $this->redirect ('cms'.DS.'studio'.DS.'edit'.DS.$params['id'], 'success');
     }
     
+    
+    public function aboutAction($params)
+    {
+        
+        if(!empty($params['submit'])){
+            //Data submited
+            if($this->db->submitAbout($params['studio'], 'studio')){
+                
+                $this->redirect ('cms'.DS.'studio'.DS.'about', 'success');
+            }else{
+                $this->redirect ('cms'.DS.'contact'.DS.'about', 'error');
+            }
+        }
+        
+        $this->set('studio', $this->db->findAbout());
+    }
+    
+    
 }

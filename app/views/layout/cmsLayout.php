@@ -42,12 +42,18 @@
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Home</a></li>
-                    <li><a <?= $this->_controller=='cmsWork'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'work'; ?>">Work</a></li>
+                    <li><a <?= $this->_controller=='cmsWork'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'work'; ?>">Clients</a></li>
                     <li><a <?= $this->_controller=='cmsWallpaper'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'wallpaper'; ?>">Wallpaper</a></li>
                     <li><a <?= $this->_controller=='cmsNews'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'news'; ?>">News</a></li>
                     <li><a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a></li>
                     <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'carousel'; ?>">Carousel</a></li>
-                    <li><a <?= $this->_controller=='cmsStudio'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'studio'; ?>">Studio</a></li>
+                    <li class="leaf">
+                        <a <?= $this->_controller=='cmsStudio'?'class="active"':''; ?> href="#" name="leaf-link" child-class="leaf-child-ads">Studio</a>
+                        <ul class="leaf-child leaf-child-ads" <?= $this->_controller=='cmsStudio'?'style="display:block;"':''; ?>>
+                            <li><a <?= $this->_action=='about'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'studio' .DS.'about'; ?>">About</a></li>
+                            <li><a <?= $this->_action=='index'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'studio'; ?>">Studio</a></li>
+                        </ul>
+                    </li>
                     <li><a <?= $this->_controller=='cmsQuotes'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'quotes'; ?>">Quotes</a></li>
                 </ul>
             </div>
