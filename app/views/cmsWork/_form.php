@@ -40,7 +40,7 @@
                                 <td>
                                     <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a>
                                 </td>
-                                <td><textarea class="mceNoEditor" disabled="disabled"><?=$file['text'];?></textarea></td>
+                                <td><?=$file['text'];?></td>
                                 <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'work' . DS . 'delete' .DS.$file['work_id'] . DS . 'image' . DS . $file['id']; ?>" title="Remove file"class="jRemoveBrowse cmsDelete"></a></td>
                             </tr>
                         <? endforeach; ?>
