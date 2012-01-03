@@ -1,5 +1,5 @@
 <ul class="addTop">
-    <li><a href="/cms/contact" >Contact</a></li>
+    <li><a class="cmsAdd" href="#" ></a></li>
 </ul>
 <div class="tabs">
     <ul>

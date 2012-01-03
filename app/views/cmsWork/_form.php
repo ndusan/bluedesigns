@@ -50,9 +50,7 @@
             <table cellpadding="0" cellspacing="0" width="710" id="jListBrowse" class="display dataTableSortable">
                 <thead>
                     <tr>
-                        <th>
-                            Image names
-                        </th>
+                        <th>Image names</th>
                         <th>Content</th>
                         <th>Action</th>
                     </tr>
