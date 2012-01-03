@@ -4,6 +4,30 @@
         <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
     <form action="/cms/work/<?= $action; ?>" method="post" enctype="multipart/form-data">
+        <div id="fragment-1" class="addContent">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td>Description:</td>
+                        <td>
+                            <textarea name="work[description][sr]" ><?= @$work['lang']['sr']['description']; ?></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="fragment-2" class="addContent">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td>Description:</td>
+                        <td>
+                            <textarea name="work[description][en]" ><?= @$work['lang']['en']['description']; ?></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
@@ -52,30 +76,6 @@
                     <a id="jAddBrowse" href="#" class="cmsAdd">Add file</a>
                 </li>
             </ul>
-        </div>
-        <div id="fragment-1" class="addContent">
-            <table cellpadding="0" cellspacing="0">
-                <tbody>
-                    <tr>
-                        <td>Description:</td>
-                        <td>
-                            <textarea name="work[description][sr]" ><?= @$work['lang']['sr']['description']; ?></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="fragment-2" class="addContent">
-            <table cellpadding="0" cellspacing="0">
-                <tbody>
-                    <tr>
-                        <td>Description:</td>
-                        <td>
-                            <textarea name="work[description][en]" ><?= @$work['lang']['en']['description']; ?></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="addContent">
             <table cellpadding="0" cellspacing="0">
