@@ -45,7 +45,7 @@ var App = App || {};
                     eId = eId.substr(2, eId.length);
                     
                     $.ajax({
-                          url: '/cms/work/position',
+                          url: '/cms/work',
                           type: 'GET',
                           dataType: 'json',
                           data: {start : $('.jpos-'+startPosition).val(), 
@@ -56,7 +56,7 @@ var App = App || {};
                           success: function(data){
                             if(data.response){
                                 var d = new Date();
-                                window.location.href = '/cms/work/edit/7?cache='+d.getTime(); 
+                                window.location.href = '/cms/work?cache='+d.getTime(); 
                             }
                           }
                           
