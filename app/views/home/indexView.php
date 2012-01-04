@@ -19,8 +19,9 @@
     <? if(!empty($lattestProjectsCollection)):?>
     <h2><?=$_t['page.latest-projects.title'];?></h2>
     <ul class="latestProjects">
+        <? $i=1;?>
         <? foreach($lattestProjectsCollection as $lp):?>
-        <li>
+        <li <?=($i++>3?'class="last"':'');?>>
             <a href="<?='http://'.rtrim('http://', $lp['link']);?>">
                 <? if(!empty($lp['image_name'])):?>
                 <img src="<?= PUBLIC_UPLOAD_PATH .'work'.DS. 'thumb-'.$lp['image_name']; ?>" />

@@ -46,7 +46,7 @@ class CmsWallpaperController extends Controller
                         $info = $this->uploadImage($newImageName, $image, 'wallpaper');
 
                         if($isThumb){
-                            $this->createThumbImage($newImageName, 'wallpaper', 128, 133);
+                            $this->createThumbImage($newImageName, 'wallpaper', 293, 170);
                             
                             $this->db->setThumbImage($id, 'thumb-'.$newImageName);
                             $isThumb = false;

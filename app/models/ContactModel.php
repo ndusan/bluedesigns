@@ -11,7 +11,7 @@ class ContactModel extends Model
     public function getContact($params)
     {
         try{
-            $query = sprintf("SELECT `s`.`image_name`, `sl`.* FROM %s AS `s`
+            $query = sprintf("SELECT `s`.`image_name`, `s`.`link`, `sl`.* FROM %s AS `s`
                                 INNER JOIN %s AS `sl` ON `sl`.`static_id`=`s`.`id`
                                 INNER JOIN %s AS `l` ON `l`.`id`=`sl`.`language_id`
                                 WHERE `l`.`iso_code`=:isoCode AND `s`.`type`=:type ORDER BY `s`.`id` DESC",

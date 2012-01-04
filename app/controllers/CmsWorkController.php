@@ -46,7 +46,7 @@ class CmsWorkController extends Controller
                             $this->uploadImage($newImageName, $image, 'work');
 
                             //Create thumb
-                            $this->createThumbImage($newImageName, 'work', 200, 95);
+                            $this->createThumbImage($newImageName, 'work', 210, 110);
                         }
                     }
                 }
@@ -81,7 +81,7 @@ class CmsWorkController extends Controller
                             $this->uploadImage($newImageName, $image, 'work');
 
                             //Create thumb
-                            $this->createThumbImage($newImageName, 'work', 200, 95);
+                            $this->createThumbImage($newImageName, 'work', 210, 110);
                         }
                     }
                 }

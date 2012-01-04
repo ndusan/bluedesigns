@@ -12,7 +12,7 @@ var App = App || {};
                 play: 5000
             });
             
-            $('#studio').accordion();
+            $('#studio').accordion({active:'none'});
         }
     };
 })(this.jQuery)
