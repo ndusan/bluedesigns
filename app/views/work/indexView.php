@@ -24,14 +24,16 @@
                 </div>
             </div>
         </div>
-        <? if(!empty($cWork['link'])):?>
+        
         <h3>
+            <? if(!empty($cWork['link'])):?>
             <span class="fr">
                 <a href="<?= 'http://'.rtrim($cWork['link'], 'http://'); ?>" target="_blank">Visit web site</a>
             </span>
+            <? endif;?>
             <?= $cWork['name']; ?>
         </h3>
-        <? endif;?>
+        
         <p><?= $cWork['description']; ?></p>
         <span><?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?></span>
     </div>

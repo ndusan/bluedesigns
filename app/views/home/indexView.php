@@ -22,7 +22,7 @@
         <? $i=1;?>
         <? foreach($lattestProjectsCollection as $lp):?>
         <li <?=($i++>3?'class="last"':'');?>>
-            <a href="<?='http://'.rtrim('http://', $lp['link']);?>">
+            <a href="<?=$params['lang'].DS.'work'.DS.'?id='.$lp['id'];?>">
                 <? if(!empty($lp['image_name'])):?>
                 <img src="<?= PUBLIC_UPLOAD_PATH .'work'.DS. 'thumb-'.$lp['image_name']; ?>" />
                 <? endif;?>
