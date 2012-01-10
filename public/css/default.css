@@ -48,7 +48,7 @@ ul.lang li a.active {color:#FFF;}
 
 ul.mainNav {overflow:hidden; position:absolute; right:0; bottom:9px;}
 ul.mainNav li {float:left; margin-left:2px;}
-ul.mainNav li a {font-weight:bold; text-transform:uppercase; color:#FFF; font-size:12px; font-family:"Georgia", sans-serif; display:block; width:108px; text-align:center; line-height:37px; background:transparent url(../images/mainNav_bg.png) scroll no-repeat 100% 0;}
+ul.mainNav li a {text-transform:uppercase; color:#FFF; font-size:11px; font-family:"Georgia", sans-serif; display:block; width:108px; text-align:center; line-height:37px; background:transparent url(../images/mainNav_bg.png) scroll no-repeat 100% 0;}
 ul.mainNav a.home:hover, ul.mainNav a.home.active {background-position:0 0;}
 ul.mainNav a.studio:hover, ul.mainNav a.studio.active {background-position:-108px 0;}
 ul.mainNav a.work:hover, ul.mainNav a.work.active {background-position:-216px 0;}
@@ -120,7 +120,7 @@ ul.latestProjects li.last {margin:0;}
 #studio div {position:relative; margin:0 0 20px; border-bottom:dotted 1px #CCC; padding:0 5px 10px; overflow:hidden;}
 #studio div span.img {float:right; width:475px; text-align:center;}
 #studio div span.txt {float:left; width:475px;}
-.colStudio p {padding:10px 0;}
+.colStudio p {padding:10px 0; font-family:"Georgia", sans-serif; }
 
 ul.downloads {overflow:hidden; padding:20px 0 5px; margin:0 0 10px; border-bottom:dotted 1px #CCC;}
 ul.downloads li {float:left; margin:0 10px 10px 0; padding:10px; position:relative; background-image: url(../images/mask.jpg);}
@@ -177,7 +177,8 @@ ul.contact input[type=submit]:hover {background-color:#2dafe8;}
 .workBanner .slides_container .slide {width:640px; height:430px; display:block;}
 .workBanner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:600px; background-image:url(../images/mask.png);}
 
-.pagination {position:absolute; right:50%; bottom:-28px;}
+.banner .pagination {position:absolute; right:50%; bottom:-28px;}
+.workBanner .pagination {position:absolute; left:0; bottom:-28px;}
 .pagination li {float:left;}
 .pagination li a {background:transparent url("../images/pagination.png") scroll no-repeat 0 0; display:block; float:left; height:0; overflow:hidden; padding-top:22px; width:19px;}
 .pagination li.current a {background-position:0 -22px;}
