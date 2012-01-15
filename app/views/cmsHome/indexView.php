@@ -31,7 +31,7 @@
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input type="text" name="home[title][en]" value="<?= @$home['en']['title']; ?>"/>
+                            <input type="text" name="home[en][title]" value="<?= @$home['en']['title']; ?>"/>
                         </td>
                     </tr>
                     <tr>

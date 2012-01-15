@@ -121,9 +121,8 @@ class HTML {
                       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, "script", "facebook-jssdk"));</script>
-                    <div class="fb-like" data-href="' . $link . '" data-send="true" data-width="450" data-show-faces="true" data-font="arial"></div>';
+                    <div class="fb-like" data-href="' . $link . '" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>';
     }
-    
     
     function twitter($array){
         
