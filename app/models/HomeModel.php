@@ -53,7 +53,7 @@ class HomeModel extends Model
             if(!empty($response)){
                 foreach($response as $r){
                     $query = sprintf("SELECT `wi`.`image_name` FROM %s AS `wi` 
-                                        WHERE `wi`.`work_id`=:workId ORDER BY `wi`.`id` ASC LIMIT 0,1", $this->tableWorkImage);
+                                        WHERE `wi`.`work_id`=:workId ORDER BY `wi`.`id` DESC LIMIT 0,1", $this->tableWorkImage);
                     $stmt = $this->dbh->prepare($query);
                     
                     $stmt->bindParam(':workId', $r['id'], PDO::PARAM_STR);
@@ -65,7 +65,7 @@ class HomeModel extends Model
                     $output[] = $r;
                 }
             }
-            
+            print_r($output);exit;
             return $output;
         }catch(Exception $e){
             
