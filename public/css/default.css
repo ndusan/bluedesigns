@@ -120,7 +120,7 @@ ul.latestProjects li.last {margin:0;}
 #studio div {position:relative; margin:0 0 20px; border-bottom:dotted 1px #CCC; padding:0 5px 10px; overflow:hidden;}
 #studio div span.img {float:right; width:475px; text-align:center;}
 #studio div span.txt {float:left; width:475px;}
-.colStudio p {padding:10px 0; font-family:"Georgia", sans-serif; }
+.colStudio p {padding:10px 0 0; font-family:"Georgia", sans-serif; }
 
 ul.downloads {overflow:hidden; padding:20px 0 5px; margin:0 0 10px; border-bottom:dotted 1px #CCC;}
 ul.downloads li {float:left; margin:0 10px 10px 0; padding:10px; position:relative; background-image: url(../images/mask.jpg);}
@@ -163,14 +163,14 @@ ul.contact input[type=text]:focus, ul.contact textarea:focus {border-color:#3d85
 ul.contact input[type=submit] {font-family:"Georgia", sans-serif; cursor:pointer; border:none;font-size:13px; background-color:#3793cf;  padding:5px 15px; color:#FFF; border-radius:5px;}
 ul.contact input[type=submit]:hover {background-color:#2dafe8;}
 
-.banner {padding:10px 0 30px;}
+.banner {padding:10px 0 30px; height:300px; overflow:hidden;}
 .banner #slides {position:relative; padding:10px;  background-image: url(../images/mask.jpg);}
 .banner .slides_container {width:940px; height:280px;} 
 .banner .slides_container p {font-family:"Georgia", sans-serif; padding:10px 0; color:#FFF;}
 .banner .slides_container .slide {width:940px; height:280px; display:block;}
 .banner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:900px; background-image:url(../images/mask.png);}
 
-.workBanner {padding:0 0 30px; margin:0 0 10px; border-bottom:dotted 1px #CCC;}
+.workBanner {padding:0 0 30px; margin:0 0 10px; border-bottom:dotted 1px #CCC; height:450px; overflow:hidden;}
 .workBanner #slides {position:relative; padding:10px;  background-image: url(../images/mask.jpg);}
 .workBanner .slides_container {width:640px; height:430px;} 
 .workBanner .slides_container p {padding:10px 0; color:#FFF;}
