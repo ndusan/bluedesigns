@@ -65,7 +65,7 @@ class HomeModel extends Model
                     $output[] = $r;
                 }
             }
-            print_r($output);exit;
+            
             return $output;
         }catch(Exception $e){
             
