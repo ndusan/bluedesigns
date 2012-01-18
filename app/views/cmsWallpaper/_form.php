@@ -7,13 +7,13 @@
                 <td>Image</td>
             </tr>
             <tr>
-                <td>800x600</td>
+                <td>1680x1050</td>
                 <td>
-                    <? if (!empty($wallpaper['800x600']['image_name'])): ?>
-                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'wallpaper' . DS . $wallpaper['800x600']['image_name']; ?>" target="_blank"><?= $wallpaper['800x600']['image_name']; ?></a>
-                        <a href="<?=DS.'cms'.DS.'wallpaper'.DS.'delete'.DS.$wallpaper['800x600']['wallpaper_id'].DS.'image'.DS.$wallpaper['800x600']['id'].'?group=800x600';?>" class="cmsDelete jw"></a>
+                    <? if (!empty($wallpaper['1680x1050']['image_name'])): ?>
+                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'wallpaper' . DS . $wallpaper['1680x1050']['image_name']; ?>" target="_blank"><?= $wallpaper['1680x1050']['image_name']; ?></a>
+                        <a href="<?=DS.'cms'.DS.'wallpaper'.DS.'delete'.DS.$wallpaper['1680x1050']['wallpaper_id'].DS.'image'.DS.$wallpaper['1680x1050']['id'].'?group=1680x1050';?>" class="cmsDelete jw"></a>
                     <? else: ?>
-                        <input type="file" name="image[800x600]" value=""/>
+                        <input type="file" name="image[1680x1050]" value=""/>
                     <? endif; ?>
                 </td>
             </tr>
@@ -29,24 +29,13 @@
                 </td>
             </tr>
             <tr>
-                <td>1400x1900</td>
+                <td>1280x1024</td>
                 <td>
-                    <? if (!empty($wallpaper['1400x1900']['image_name'])): ?>
-                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'wallpaper' . DS . $wallpaper['1400x1900']['image_name']; ?>" target="_blank"><?= $wallpaper['1400x1900']['image_name']; ?></a>
-                        <a href="<?=DS.'cms'.DS.'wallpaper'.DS.'delete'.DS.$wallpaper['1400x1900']['wallpaper_id'].DS.'image'.DS.$wallpaper['1400x1900']['id'].'?group=1400x1900';?>" class="cmsDelete jw"></a>
+                    <? if (!empty($wallpaper['1280x1024']['image_name'])): ?>
+                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'wallpaper' . DS . $wallpaper['1280x1024']['image_name']; ?>" target="_blank"><?= $wallpaper['1280x1024']['image_name']; ?></a>
+                        <a href="<?=DS.'cms'.DS.'wallpaper'.DS.'delete'.DS.$wallpaper['1280x1024']['wallpaper_id'].DS.'image'.DS.$wallpaper['1280x1024']['id'].'?group=1280x1024';?>" class="cmsDelete jw"></a>
                     <? else: ?>
-                        <input type="file" name="image[1400x1900]" value=""/>
-                    <? endif; ?>
-                </td>
-            </tr>
-            <tr>
-                <td>1600x1200</td>
-                <td>
-                    <? if (!empty($wallpaper['1600x1200']['image_name'])): ?>
-                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'wallpaper' . DS . $wallpaper['1600x1200']['image_name']; ?>" target="_blank"><?= $wallpaper['1600x1200']['image_name']; ?></a>
-                        <a href="<?=DS.'cms'.DS.'wallpaper'.DS.'delete'.DS.$wallpaper['1600x1200']['wallpaper_id'].DS.'image'.DS.$wallpaper['1600x1200']['id'].'?group=1600x1200';?>" class="cmsDelete jw"></a>
-                    <? else: ?>
-                        <input type="file" name="image[1600x1200]" value=""/>
+                        <input type="file" name="image[1280x1024]" value=""/>
                     <? endif; ?>
                 </td>
             </tr>

@@ -3,7 +3,7 @@
 class HomeController extends Controller
 {
     
-    private $numOfLattestProjects = 5;
+    private $numOfLattestProjects = 4;
     
     /**
      * HOME PAGE

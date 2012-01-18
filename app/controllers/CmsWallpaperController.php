@@ -14,7 +14,7 @@ class CmsWallpaperController extends Controller
         
         if(!empty($params['submit'])){
             
-            $imageGroups = array('800x600', '1024x768', '1400x1900', '1600x1200');
+            $imageGroups = array('1680x1050', '1280x1024', '1024x768');//'800x600', '1024x768', '1400x1900', '1600x1200');
             //Check if at least one has been uploaded
             $uploaded = false;
             foreach($imageGroups as $g){
@@ -66,7 +66,7 @@ class CmsWallpaperController extends Controller
         if(!empty($params['submit'])){
             //Data submited
 
-            $imageGroups = array('800x600', '1024x768', '1400x1900', '1600x1200');
+            $imageGroups = array('1680x1050', '1280x1024', '1024x768');//'800x600', '1024x768', '1400x1900', '1600x1200');
             
             if($this->db->update($params['wallpaper'])){
                 $i=0;

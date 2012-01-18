@@ -49,7 +49,7 @@
         </div>
         <div class="footer">
             <p>&copy;2012 Blue Designs. All rights reserved.</p>
-            <a href="http://www.facebook.com/bluedesigns" target="_blank" class="fb"></a><a href="http://twitter.com/#!/bluedesigns2011" target="_blank"class="tw"></a><a href="#" class="yt"></a>
+            <a href="http://www.facebook.com/bluedesigns" target="_blank" class="fb"></a><a href="https://twitter.com/#!/bluedesigns2012" target="_blank"class="tw"></a><a href="#" class="yt"></a>
             <a class="logoFooter">
                 <img src="<?= IMAGE_PATH . 'logoFooter.png'; ?>" />
             </a>
