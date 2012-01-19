@@ -7,8 +7,9 @@
     <h2><?=$_t['page.download.title'];?></h2>
     <? if(!empty($wallpaperCollection)):?>
     <ul class="downloads">
+        <? $countWallpaper = 0;?>
         <? foreach($wallpaperCollection as $w):?>
-        <li>
+        <li <? if($countWallpaper++ >= 2): $countWallpaper=0; echo 'class="last"'; endif; ?>>
             <img src="<?= PUBLIC_UPLOAD_PATH . 'wallpaper' .DS. $w['image_name']; ?>" />
             <? if(!empty($w['other'])):?>
             <span>
