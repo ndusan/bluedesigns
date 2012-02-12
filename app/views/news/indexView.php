@@ -10,12 +10,12 @@
             <? $i = 1; ?>
             <? foreach ($resultCollection as $r): ?>
                 <li <?= ($i++ > 2 ? 'class="last"' : ''); ?>>
-                    <? if($r['set'] == 'image' && !empty($r['image_name'])):?>
+                    <? if ($r['set'] == 'image' && !empty($r['image_name'])): ?>
                         <div class="newsImg">
                             <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . $r['image_name']; ?>" />
                         </div>
-                    <? elseif($r['set'] == 'link' && !empty($r['link'])):?>
-                        <?=$r['link'];?>
+                    <? elseif ($r['set'] == 'link' && !empty($r['link'])): ?>
+                        <?= $r['link']; ?>
                     <? endif; ?>
                     <div class="newsText">
                         <h4><?= $r['title']; ?></h4>
@@ -29,7 +29,6 @@
                             <?= date('M', mktime(0, 0, 0, $array[1] + 1, 0, 0)); ?>
                         </div>
                     </div>
-                    <span><?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?></span>
                 </li>
             <? endforeach; ?>
         </ul>
@@ -62,5 +61,10 @@
 
             <!-- pagination END -->
         <? endif; ?>
+        <span>
+            <?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
+        </span>
     </div>
 </div>
