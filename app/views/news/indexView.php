@@ -48,7 +48,7 @@
                     <? if ($x == $pagination['current']): ?>
                         <b><?= $x; ?></b>
                     <? else: ?>
-                        <a href="<?= DS . $params['lang'] . DS . 'news?page=' . $pagination['current']; ?>"><?= $x; ?></a>
+                        <a href="<?= DS . $params['lang'] . DS . 'news?page=' . $x; ?>"><?= $x; ?></a>
                     <? endif; ?>
                 <? endif; ?>
             <? endfor; ?>
