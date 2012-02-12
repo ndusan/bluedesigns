@@ -57,7 +57,7 @@ ul.mainNav a.download:hover, ul.mainNav a.download.active {background-position:-
 ul.mainNav a.contact:hover, ul.mainNav a.contact.active {background-position:-540px 0;}
 
 .contentW {background-color:#FFF;}
-.content {width:960px; margin:0 auto; overflow:hidden;}
+.content {width:960px; margin:0 auto;}
 
 .bottomW {background-color:#c7dff4; padding:10px 0; border-bottom:solid 10px #3d85c6;}
 .bottom {width:960px; margin:0 auto;}
