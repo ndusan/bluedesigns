@@ -8,6 +8,10 @@
         <meta name="Keywords" content="" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <meta name="google-site-verification" content="FS52dewZbrEpkOtZ8OiqOxUpjNiOvAvFVb_-p7FeCBA" />
+        <!--FB -->
+        <meta property="og:title" content="Blue Designs"/> 
+        <meta property="og:site_name" content="Blue Designs"/> 
+        <meta property="og:image" content="/public/images/logo.png"/>
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
