@@ -192,3 +192,9 @@ ul.contact input[type=submit]:hover {background-color:#2dafe8;}
 
 .msg {padding:10px 0; text-align:center; color:#FFF; margin:0 0 10px; }
 .success {background-color:#66b122;}
+
+/** FB work-around **/
+iframe.fb_ltr{
+    padding-bottom: 3px!important;
+    width: 80px!important;
+}
