@@ -178,7 +178,7 @@ ul.contact input[type=submit]:hover {background-color:#2dafe8;}
 .workBanner .slides_container .slide {width:640px; height:430px; display:block;}
 .workBanner .slides_container .desc {padding:0 20px; position:absolute; right:0; bottom:0; width:600px; background-image:url(../images/mask.png);}
 
-.banner .pagination {position:absolute; right:50%; bottom:-28px;}
+.banner .pagination {position:absolute; right:0; bottom:-28px;}
 .workBanner .pagination {position:absolute; left:0; bottom:-28px;}
 .pagination li {float:left;}
 .pagination li a {background:transparent url("../images/pagination.png") scroll no-repeat 0 0; display:block; float:left; height:0; overflow:hidden; padding-top:22px; width:19px;}
