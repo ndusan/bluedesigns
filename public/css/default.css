@@ -106,6 +106,7 @@ ul.latestProjects li.last {margin:0;}
 .colHome h2 {color:#92278f;}
 .colStudio h2 {color:#8dc63f;}
 .colDownloads h2 {color:#e30613;}
+.colWork {overflow:hidden;}
 .colWork h2 {color:#f39200;}
 .colNews h2 {color:#b3a400;}
 .colContact h2 {color:#966a39;}
