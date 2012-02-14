@@ -22,7 +22,7 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/work\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/work(\/(?P<id>\d*)){0,1}\/?$/', 
             'controller' => 'work', 
             'action'     => 'index', 
             'layout'     => 'default'

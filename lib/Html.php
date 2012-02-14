@@ -113,15 +113,15 @@ class HTML {
         if (null == $link)
             return false;
 
-        return '<div class="fb-root"></div>
-                    <script>(function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0];
-                      if (d.getElementById(id)) {return;}
-                      js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                      fjs.parentNode.insertBefore(js, fjs);
-                    }(document, "script", "facebook-jssdk"));</script>
-                    <div class="fb-like" data-href="' . $link . '" data-send="false" data-layout="button_count" data-show-faces="false" data-font="arial"></div>';
+        $array = array('href'=>$link,
+                       'send'=>false,
+                       'layout'=>'button_count',
+                       'width'=>80,
+                       'height'=>21,
+                       'show_faces'=>false,
+                       'action'=>'like',
+                       'colorscheme'=>'light');
+        return '<iframe src="http://www.facebook.com/plugins/like.php?'.  http_build_query($array).'" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>';
     }
     
     function twitter($array){

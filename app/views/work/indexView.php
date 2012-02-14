@@ -4,7 +4,7 @@
         <? if (!empty($workCollection)): ?>
             <ul class="clientsList">
                 <? foreach ($workCollection as $w): ?>
-                    <li><a <?= ($w['id'] == $cWork['id'] ? 'class="active"' : ''); ?> href="<?= DS . $params['lang'] . DS . 'work?id=' . $w['id']; ?>"><?= $w['name']; ?></a></li>
+                    <li><a <?= ($w['id'] == $cWork['id'] ? 'class="active"' : ''); ?> href="<?= DS . $params['lang'] . DS . 'work'.DS . $w['id']; ?>"><?= $w['name']; ?></a></li>
                 <? endforeach; ?>
             </ul>
         <? endif; ?>
@@ -35,9 +35,14 @@
         </h3>
 
         <p><?= $cWork['description']; ?></p>
-        <span>
-            <?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"].isset($_GET['id'])?'?id='.$_GET['id']:''); ?>
-            <?= $html->twitter(array('url'=>$_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"].isset($_GET['id'])?'?id='.$_GET['id']:'', 'text'=>'Blue Designs'));?>
+        <span >
+            <? $url = $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+               if(!empty($cWork['id'])){
+                   $url .= '/'.$cWork['id'];
+               }
+            ?>  
+            <?= $html->fb($url); ?>
+            <?= $html->twitter(array('url'=>$url, 'text'=>'Blue Designs'));?>
         </span>
     </div>
 </div>
