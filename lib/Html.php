@@ -116,12 +116,12 @@ class HTML {
         $array = array('href'=>$link,
                        'send'=>false,
                        'layout'=>'button_count',
-                       'width'=>80,
+                       'width'=>90,
                        'height'=>21,
                        'show_faces'=>false,
                        'action'=>'like',
                        'colorscheme'=>'light');
-        return '<iframe src="http://www.facebook.com/plugins/like.php?'.  http_build_query($array).'" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>';
+        return '<iframe src="http://www.facebook.com/plugins/like.php?'.  http_build_query($array).'" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>';
     }
     
     function twitter($array){

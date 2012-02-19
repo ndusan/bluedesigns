@@ -36,13 +36,8 @@
 
         <p><?= $cWork['description']; ?></p>
         <span >
-            <? $url = $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-               if(!empty($cWork['id'])){
-                   $url .= '/'.$cWork['id'];
-               }
-            ?>  
-            <?= $html->fb($url); ?>
-            <?= $html->twitter(array('url'=>$url, 'text'=>'Blue Designs'));?>
+            <?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?>
+            <?= $html->twitter(array('url'=>$_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"], 'text'=>'Blue Designs'));?>
         </span>
     </div>
 </div>

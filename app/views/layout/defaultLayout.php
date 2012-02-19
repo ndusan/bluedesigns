@@ -1,7 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Blue Designs</title>
+    <head><?  $breadcrumb = '';
+            if(!empty($params['breadcrumb'])):
+                foreach($params['breadcrumb'] as $bc):
+                    if(!is_numeric($bc) && !empty($bc)):
+                        $breadcrumb.= ' - '.str_replace('-', ' ', ucfirst($bc));
+                        //If work add more info
+                        if($bc == 'work' && !empty($cWork)){
+                            $breadcrumb.= ' - '.$cWork['name'];
+                        }
+                    endif;
+                endforeach;
+          endif;?>
+        <title>Blue Designs<?=$breadcrumb;?></title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Description" content="" />
@@ -9,9 +20,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <meta name="google-site-verification" content="FS52dewZbrEpkOtZ8OiqOxUpjNiOvAvFVb_-p7FeCBA" />
         <!--FB -->
-        <meta property="og:title" content="Blue Designs"/> 
-        <meta property="og:site_name" content="Blue Designs"/> 
-        <meta property="og:image" content="/public/images/logo.png"/>
+        <meta property="og:title" content="Blue Designs<?=$breadcrumb;?>"/> 
+        <meta property="og:site_name" content="Blue Designs<?=$breadcrumb;?>"/> 
+        <? if(!empty($cWork['other'][0])):?>
+        <meta property="og:image" content="<?=$_SERVER["SERVER_NAME"].DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $cWork['other'][0]['image_name'];?>"/>
+        <? else: ?>
+        <meta property="og:image" content="<?=$_SERVER["SERVER_NAME"];?>/public/images/fb_blue_designs.jpg"/>
+        <? endif; ?>
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
@@ -30,7 +45,7 @@
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
-
+        
         <div class="headerW">
             <div class="header"> 
                 <a class="logo" href="/">
