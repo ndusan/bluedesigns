@@ -129,11 +129,10 @@ class HTML {
         if(empty($array)) return false;
 
         $twitterArray = array('url'=> $array['url'],
-                              'text'=>$array['text'].(!empty($$array['url']) ? ' - '.$array['url'] : ''),
                               'counturl'=>$array['url']);
         
         return '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-               <a href="https://twitter.com/share?'.http_build_query($twitterArray).'" class="twitter-share-button" target="_blank">Tweet</a>';
+               <a href="https://twitter.com/share?'.http_build_query($array['url']).'&text='.$array['text'].(!empty($array['url']) ? ' - '.$array['url'] : '').'" class="twitter-share-button" target="_blank">Tweet</a>';
     }
 
     function convertDate($date, $includeTime=false) {
