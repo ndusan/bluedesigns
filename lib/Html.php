@@ -129,7 +129,7 @@ class HTML {
         if(empty($array)) return false;
 
         $twitterArray = array('url'=> $array['url'],
-                              'text'=>$array['text'],
+                              'text'=>$array['text'].(!empty($$array['url']) ? ' - '.$array['url'] : ''),
                               'counturl'=>$array['url']);
         
         return '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>

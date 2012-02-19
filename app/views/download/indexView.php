@@ -27,7 +27,7 @@
         </ul>
         <? endif; ?>
     <span>
-<?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?>
-        <?= $html->twitter(array('url'=>$_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"], 'text'=>'Blue Designs'));?>
+        <?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?>
+        <?= $html->twitter(array('url'=>$_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"], 'text'=>'Blue Desgins - '.$breadcrumb));?>
     </span>
 </div>
