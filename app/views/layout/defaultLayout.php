@@ -19,14 +19,16 @@
         <meta name="Keywords" content="" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <meta name="google-site-verification" content="FS52dewZbrEpkOtZ8OiqOxUpjNiOvAvFVb_-p7FeCBA" />
+        
         <!--FB -->
         <meta property="og:title" content="Blue Designs<?=$breadcrumb;?>"/> 
-        <meta property="og:site_name" content="Blue Designs<?=$breadcrumb;?>"/> 
         <? if(!empty($cWork['other'][0])):?>
-        <meta property="og:image" content="<?=$_SERVER["SERVER_NAME"].DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $cWork['other'][0]['image_name'];?>"/>
+        <meta property="og:image" content="http://<?=rtrim($_SERVER["SERVER_NAME"],'http://').DS . 'public' . DS . 'uploads' . DS . 'work' . DS . $cWork['other'][0]['image_name'];?>"/>
         <? else: ?>
-        <meta property="og:image" content="<?=$_SERVER["SERVER_NAME"];?>/public/images/fb_blue_designs.jpg"/>
+        <meta property="og:image" content="http://<?=rtrim($_SERVER["SERVER_NAME"], 'http://');?>/public/images/fb_blue_designs.jpg"/>
         <? endif; ?>
+        <meta property="og:site_name" content="Blue Designs<?=$breadcrumb;?>"/> 
+        
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>

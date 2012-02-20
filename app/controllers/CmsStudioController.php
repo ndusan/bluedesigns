@@ -53,7 +53,7 @@ class CmsStudioController extends Controller
             if($this->db->update($params['studio'])){
                 //If image uploaded add it
                 
-                if(0 == $params['image']['error']){
+                if(!empty($params['image']) && 0 == $params['image']['error']){
                     
                     $data = $this->db->getImageName($params['studio']['id']);
                     $oldImageName = $data['image_name'];
