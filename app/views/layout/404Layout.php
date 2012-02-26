@@ -10,20 +10,16 @@
         <!-- Load all custom css -->
         <?= $html->css('default', CSS_PATH); ?>
     </head>
-    <body style="background-color: #FFF!important;">
+    <body style="background-color: #0067ac !important;">
         <div class="page404">
             <table width="100%">
-                <tbody
+                <tbody>
                     <tr>
-                        <td width="350" align="center">
-                            <img src="<?= IMAGE_PATH . '404.jpg'; ?>" />  
+                        <td width="900" align="center">
+                           <a href="/sr"><img src="<?= IMAGE_PATH . '404.jpg'; ?>" />  </a>
                         </td>
-                        <td>
-                            <h2>Hmm... stranica koju tražite ne postoji</h2>
-                            <p>Kako se ovo desilo?</p>
-                            <a href="/sr">Vrati se na početnu stranu</a>
-                        </td>
-                    </tr>
+                       </tr>
+                    
                 </tbody>
             </table>
         </div>
